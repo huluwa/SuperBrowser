@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/org.zirco"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <org.zirco.ui.view.PagerSlidingTabStrip
+        android:id="@+id/cell_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="44dip"
+        app:pstsIndicatorColor="@color/browser_color_ff0eafa1"
+        app:pstsUnderlineColor="@color/browser_color_ff0eafa1"
+        app:pstsIndicatorHeight="5dip"
+        app:pstsUnderlineHeight="1dip"
+        app:pstsShouldExpand="true" />
+
+    <org.zirco.ui.view.NestedViewPager
+        android:id="@+id/cell_viewpager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/browser_color_fff6f6f6"
+        android:spacing="1px" />
+
+</LinearLayout>

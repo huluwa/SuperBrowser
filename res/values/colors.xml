@@ -16,5 +16,14 @@
  -->
 
 <resources>
-	<color name="dialog_title_background">#17170443</color>
+	<color name="browser_color_17170443">#17170443</color>
+	<color name="browser_color_6633B5E5">#6633B5E5</color>
+	
+	<color name="browser_color_ff0eafa1">#ff0eafa1</color>
+	<color name="browser_color_fff6f6f6">#fff6f6f6</color>
+	
+	
+	<color name="browser_color_ffffffff">#ffffffff</color>
+	
+	
 </resources>

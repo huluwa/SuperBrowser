@@ -45,7 +45,8 @@
 
     <application
         android:icon="@drawable/icon"
-        android:label="@string/ApplicationName" >
+        android:label="@string/ApplicationName"
+        android:name=".BrowserApplication" >
         <activity
             android:name=".ui.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -104,6 +105,7 @@
             android:name=".ui.activities.preferences.WeaveServerPreferenceActivity"
             android:label="@string/WeaveServerPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
+        <activity android:name=".ui.activities.HomeActivity" />
 
         <provider
             android:name=".providers.ZircoBookmarksContentProvider"

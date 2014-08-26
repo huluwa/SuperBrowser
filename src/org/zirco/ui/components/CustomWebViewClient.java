@@ -15,9 +15,9 @@
 
 package org.zirco.ui.components;
 
+import org.zirco.BrowserApplication;
 import org.zirco.R;
 import org.zirco.controllers.Controller;
-import org.zirco.ui.activities.MainActivity;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
 import org.zirco.utils.UrlUtils;
@@ -33,8 +33,8 @@ import android.view.WindowManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.webkit.WebView.HitTestResult;
+import android.webkit.WebViewClient;
 import android.widget.EditText;
 
 /**
@@ -42,17 +42,17 @@ import android.widget.EditText;
  */
 public class CustomWebViewClient extends WebViewClient {
 	
-	private MainActivity mMainActivity;
+	private CustomWebViewClientCallback mCallback;
 	
-	public CustomWebViewClient(MainActivity mainActivity) {
+	public CustomWebViewClient(CustomWebViewClientCallback callback) {
 		super();
-		mMainActivity = mainActivity;
+		mCallback = callback;
 	}
 	
 	@Override
 	public void onPageFinished(WebView view, String url) {			
 		((CustomWebView) view).notifyPageFinished();
-		mMainActivity.onPageFinished(url);
+		mCallback.onPageFinished(url);
 		
 		super.onPageFinished(view, url);
 	}
@@ -69,7 +69,7 @@ public class CustomWebViewClient extends WebViewClient {
 		}
 		
 		((CustomWebView) view).notifyPageStarted();
-		mMainActivity.onPageStarted(url);
+		mCallback.onPageStarted(url);
 		
 		super.onPageStarted(view, url, favicon);
 	}
@@ -132,7 +132,7 @@ public class CustomWebViewClient extends WebViewClient {
 	public boolean shouldOverrideUrlLoading(WebView view, String url) {				
 		
 		if (isExternalApplicationUrl(url)) {
-			mMainActivity.onExternalApplicationUrl(url);
+			mCallback.onExternalApplicationUrl(url);
 			return true;
 			
 		} else if (url.startsWith(Constants.URL_ACTION_SEARCH)) {
@@ -145,7 +145,7 @@ public class CustomWebViewClient extends WebViewClient {
 			return true;
 			
 		} else if (view.getHitTestResult() != null && view.getHitTestResult().getType() == HitTestResult.EMAIL_TYPE) {
-			mMainActivity.onMailTo(url);
+			mCallback.onMailTo(url);
 			return true;
 			
 		} else {
@@ -160,7 +160,7 @@ public class CustomWebViewClient extends WebViewClient {
 				
 			} else {			
 				((CustomWebView) view).resetLoadedUrl();
-				mMainActivity.onUrlLoading(url);
+				mCallback.onUrlLoading(url);
 				return false;
 			}
 		}
@@ -185,7 +185,7 @@ public class CustomWebViewClient extends WebViewClient {
         if (username != null && password != null) {
             handler.proceed(username, password);
         } else {
-        	LayoutInflater factory = LayoutInflater.from(mMainActivity);
+        	LayoutInflater factory = LayoutInflater.from(BrowserApplication.getContext());
             final View v = factory.inflate(R.layout.http_authentication_dialog, null);
             
             if (username != null) {
@@ -195,8 +195,8 @@ public class CustomWebViewClient extends WebViewClient {
                 ((EditText) v.findViewById(R.id.password_edit)).setText(password);
             }
             
-            AlertDialog dialog = new AlertDialog.Builder(mMainActivity)
-            .setTitle(String.format(mMainActivity.getString(R.string.HttpAuthenticationDialog_DialogTitle), host, realm))
+            AlertDialog dialog = new AlertDialog.Builder(BrowserApplication.getContext())
+            .setTitle(String.format(BrowserApplication.getContext().getString(R.string.HttpAuthenticationDialog_DialogTitle), host, realm))
             .setIcon(android.R.drawable.ic_dialog_alert)
             .setView(v)
             .setPositiveButton(R.string.Commons_Proceed,
@@ -209,7 +209,7 @@ public class CustomWebViewClient extends WebViewClient {
                             String pw = ((EditText) v
                                     .findViewById(R.id.password_edit))
                                     .getText().toString();
-                            mMainActivity.setHttpAuthUsernamePassword(host, realm, nm, pw);
+                            mCallback.setHttpAuthUsernamePassword(host, realm, nm, pw);
                             handler.proceed(nm, pw);
                         }})
             .setNegativeButton(R.string.Commons_Cancel,

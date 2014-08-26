@@ -35,6 +35,7 @@ import org.zirco.providers.BookmarksProviderWrapper.BookmarksSource;
 import org.zirco.ui.activities.preferences.PreferencesActivity;
 import org.zirco.ui.components.CustomWebView;
 import org.zirco.ui.components.CustomWebViewClient;
+import org.zirco.ui.components.CustomWebViewClientCallback;
 import org.zirco.ui.runnables.FaviconUpdaterRunnable;
 import org.zirco.ui.runnables.HideToolbarsRunnable;
 import org.zirco.ui.runnables.HistoryUpdater;
@@ -111,7 +112,7 @@ import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 /**
  * The application main activity.
  */
-public class MainActivity extends Activity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener {
+public class MainActivity extends Activity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener, CustomWebViewClientCallback {
 	
 	public static MainActivity INSTANCE = null;
 	
@@ -293,6 +294,8 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
         
         startToolbarsHideRunnable();
         
+        
+        startActivity(new Intent(this, HomeActivity.class));
     }
 
     /**

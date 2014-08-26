@@ -20,7 +20,7 @@
 	android:layout_height="wrap_content"
 	android:layout_width="fill_parent"
 	android:orientation="vertical"
-	android:background="@color/dialog_title_background"
+	android:background="@color/browser_color_17170443"
 	android:paddingTop="10dip"
 	android:paddingLeft="10dip"
 	android:paddingRight="10dip">

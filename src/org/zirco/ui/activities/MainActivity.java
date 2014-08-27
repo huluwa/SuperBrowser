@@ -28,6 +28,7 @@ import org.zirco.controllers.Controller;
 import org.zirco.events.EventConstants;
 import org.zirco.events.EventController;
 import org.zirco.events.IDownloadEventsListener;
+import org.zirco.model.adapters.TabPagerAdapter;
 import org.zirco.model.adapters.UrlSuggestionCursorAdapter;
 import org.zirco.model.items.DownloadItem;
 import org.zirco.providers.BookmarksProviderWrapper;
@@ -39,11 +40,11 @@ import org.zirco.ui.components.CustomWebViewClientCallback;
 import org.zirco.ui.runnables.FaviconUpdaterRunnable;
 import org.zirco.ui.runnables.HideToolbarsRunnable;
 import org.zirco.ui.runnables.HistoryUpdater;
+import org.zirco.ui.view.NestedViewPager;
 import org.zirco.utils.AnimationManager;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
 import org.zirco.utils.UrlUtils;
-
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -60,7 +61,6 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.YuvImage;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -69,9 +69,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -79,12 +81,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
-import android.view.View.OnTouchListener;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.DownloadListener;
 import android.webkit.JsPromptResult;
@@ -104,15 +105,15 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
-import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 
 /**
  * The application main activity.
  */
-public class MainActivity extends Activity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener, CustomWebViewClientCallback {
+public class MainActivity extends FragmentActivity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener, CustomWebViewClientCallback {
 	
 	public static MainActivity INSTANCE = null;
 	
@@ -145,13 +146,12 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 	
 	private LinearLayout mTopBar;
 	private LinearLayout mBottomBar;
-	
 	private LinearLayout mFindBar;
 	
+	//查找框
 	private ImageButton mFindPreviousButton;
 	private ImageButton mFindNextButton;
 	private ImageButton mFindCloseButton;
-	
 	private EditText mFindText;
 	
 	private ImageView mPreviousTabView;
@@ -160,7 +160,7 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 	private ImageButton mToolsButton;
 	private AutoCompleteTextView mUrlEditText;
 	private ImageButton mGoButton;	
-	private ProgressBar mProgressBar;	
+	private ProgressBar mProgressBar;
 	
 	private ImageView mBubbleRightView;
 	private ImageView mBubbleLeftView;
@@ -187,6 +187,8 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 	private HideToolbarsRunnable mHideToolbarsRunnable;
 	
 	private ViewFlipper mViewFlipper;
+	private NestedViewPager mTabViewPager;
+	private TabPagerAdapter mTabPagerAdapter;
 	
 	private GestureDetector mGestureDetector;
 	
@@ -244,7 +246,7 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
         
         buildComponents();                
         
-        mViewFlipper.removeAllViews();   
+        mViewFlipper.removeAllViews();
         
         updateSwitchTabsMethod();
         updateBookmarksDatabaseSource();
@@ -295,7 +297,7 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
         startToolbarsHideRunnable();
         
         
-        startActivity(new Intent(this, HomeActivity.class));
+//        startActivity(new Intent(this, HomeActivity.class));
     }
 
     /**
@@ -373,7 +375,7 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 				case 0:
 					navigateToHome();
 					break;
-				case 1:
+				case 1: //分享
 					ApplicationUtils.sharePage(MainActivity.this, mCurrentWebView.getTitle(), mCurrentWebView.getUrl());
 					break;
 				case 2:					
@@ -657,8 +659,18 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 			@Override
 			public void afterTextChanged(Editable s) { }
 		});
+		
+		initViewPagerAndTab();
 
     }
+	
+	private void initViewPagerAndTab() {
+		mTabViewPager = (NestedViewPager) this.findViewById(R.id.detailplay_half_detail_viewpager);
+		mTabViewPager.setPagingEnabled(true);
+		mTabPagerAdapter = new TabPagerAdapter(this.getSupportFragmentManager());
+		mTabViewPager.setAdapter(mTabPagerAdapter);
+		mTabViewPager.setCurrentItem(0);
+	}
     	
 	private void registerPreferenceChangeListener() {
     	mPreferenceChangeListener = new OnSharedPreferenceChangeListener() {			
@@ -1376,7 +1388,7 @@ public class MainActivity extends Activity implements IToolbarsContainer, OnTouc
 					(!mToolsActionGridVisible)) {
 				
 				if (!mCurrentWebView.isLoading()) {
-					setToolbarsVisibility(false);
+//					setToolbarsVisibility(false);
 				}
 			}
 		}

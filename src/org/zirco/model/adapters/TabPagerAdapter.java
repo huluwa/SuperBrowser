@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.zirco.ui.fragment.BaseFragment;
 import org.zirco.ui.fragment.CellFragment;
+import org.zirco.ui.fragment.WebviewFragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,6 +21,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 		mFragmentManager = fm;
 		fragments = new ArrayList<BaseFragment>();
 		fragments.add(new CellFragment());
+		fragments.add(new WebviewFragment());
 	}
 
 	@Override

@@ -9,6 +9,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 
+/**
+ * for test
+ * @author chenyueguo
+ *
+ */
 public class HomeActivity extends FragmentActivity {
 	
 	private NestedViewPager mTabViewPager;

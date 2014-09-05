@@ -46,9 +46,9 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/ApplicationName"
-        android:name=".BrowserApplication" >
+        android:name="org.zirco.BrowserApplication" >
         <activity
-            android:name=".ui.activities.MainActivity"
+            android:name="org.zirco.ui.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/ApplicationName" >
             <intent-filter>
@@ -67,51 +67,51 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activities.AboutActivity"
+            android:name="org.zirco.ui.activities.AboutActivity"
             android:label="@string/AboutActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".ui.activities.EditBookmarkActivity"
+            android:name="org.zirco.ui.activities.EditBookmarkActivity"
             android:label="@string/EditBookmarkActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".ui.activities.BookmarksListActivity" />
-        <activity android:name=".ui.activities.HistoryListActivity" />
-        <activity android:name=".ui.activities.DownloadsListActivity" />
-        <activity android:name=".ui.activities.AdBlockerWhiteListActivity" />
+        <activity android:name="org.zirco.ui.activities.BookmarksListActivity" />
+        <activity android:name="org.zirco.ui.activities.HistoryListActivity" />
+        <activity android:name="org.zirco.ui.activities.DownloadsListActivity" />
+        <activity android:name="org.zirco.ui.activities.AdBlockerWhiteListActivity" />
         <activity
-            android:name=".ui.activities.BookmarksHistoryActivity"
+            android:name="org.zirco.ui.activities.BookmarksHistoryActivity"
             android:configChanges="keyboardHidden|orientation" />
         <activity
-            android:name=".ui.activities.ChangelogActivity"
+            android:name="org.zirco.ui.activities.ChangelogActivity"
             android:label="@string/ChangelogActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".ui.activities.preferences.PreferencesActivity" />
+        <activity android:name="org.zirco.ui.activities.preferences.PreferencesActivity" />
         <activity
-            android:name=".ui.activities.preferences.HomepagePreferenceActivity"
+            android:name="org.zirco.ui.activities.preferences.HomepagePreferenceActivity"
             android:label="@string/HomepagePreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".ui.activities.preferences.SearchUrlPreferenceActivity"
+            android:name="org.zirco.ui.activities.preferences.SearchUrlPreferenceActivity"
             android:label="@string/SearchUrlPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name=".ui.activities.preferences.UserAgentPreferenceActivity"
+            android:name="org.zirco.ui.activities.preferences.UserAgentPreferenceActivity"
             android:label="@string/UserAgentPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".ui.activities.MobileViewListActivity" />
-        <activity android:name=".ui.activities.WeaveBookmarksListActivity" />
-        <activity android:name=".ui.activities.preferences.WeavePreferencesActivity" />
+        <activity android:name="org.zirco.ui.activities.MobileViewListActivity" />
+        <activity android:name="org.zirco.ui.activities.WeaveBookmarksListActivity" />
+        <activity android:name="org.zirco.ui.activities.preferences.WeavePreferencesActivity" />
         <activity
-            android:name=".ui.activities.preferences.WeaveServerPreferenceActivity"
+            android:name="org.zirco.ui.activities.preferences.WeaveServerPreferenceActivity"
             android:label="@string/WeaveServerPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name=".ui.activities.HomeActivity" />
+        <activity android:name="org.zirco.ui.activities.HomeActivity" />
 
         <provider
-            android:name=".providers.ZircoBookmarksContentProvider"
+            android:name="org.zirco.providers.ZircoBookmarksContentProvider"
             android:authorities="org.zirco.providers.zircobookmarkscontentprovider" />
         <provider
-            android:name=".providers.WeaveContentProvider"
+            android:name="org.zirco.providers.WeaveContentProvider"
             android:authorities="org.zirco.providers.weavecontentprovider" />
 
         <receiver android:name="org.zirco.utils.ProxyChangeReceiver" >

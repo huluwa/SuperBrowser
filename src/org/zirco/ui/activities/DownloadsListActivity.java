@@ -16,6 +16,8 @@
 package org.zirco.ui.activities;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 
 import org.zirco.R;
 import org.zirco.controllers.Controller;
@@ -24,6 +26,7 @@ import org.zirco.events.EventController;
 import org.zirco.events.IDownloadEventsListener;
 import org.zirco.model.adapters.DownloadListAdapter;
 import org.zirco.model.items.DownloadItem;
+import org.zirco.utils.StorageCheckor;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -47,7 +50,9 @@ import android.widget.TextView;
 public class DownloadsListActivity extends ListActivity implements IDownloadEventsListener {
 	
 	private static final int MENU_CLEAR_DOWNLOADS = Menu.FIRST;
-
+	
+	private TextView capacityTextV;
+	private ProgressBar capacityPBar;
 	private DownloadListAdapter mAdapter;
 	
 	@Override
@@ -58,8 +63,11 @@ public class DownloadsListActivity extends ListActivity implements IDownloadEven
         setTitle(R.string.DownloadListActivity_Title);
         
         EventController.getInstance().addDownloadListener(this);
-        
+        capacityTextV = (TextView) findViewById(R.id.textv_capacity);
+		capacityPBar = (ProgressBar) findViewById(R.id.progressbar_capacity);
         fillData();
+        
+        updateSdcardSpace();
 	}
 	
 	@Override
@@ -181,4 +189,73 @@ public class DownloadsListActivity extends ListActivity implements IDownloadEven
 		
 	}
 	
+	/**
+	 * 每次进来刷新下剩余空间
+	 */
+	public void updateSdcardSpace() {
+		final long availableSize = StorageCheckor.getAvailableExternalMemorySize();
+		final long totalSize = StorageCheckor.getTotalExternalMemorySize();
+		capacityTextV.setText(getString(R.string.download_videos_manage_space,
+				getGB_Number(availableSize, 1), getGB_Number(availableSize, 1)));
+		
+		int progress = 0;
+		if (totalSize != 0) {
+			progress = (int) (100 - (((float)availableSize / (float)totalSize) * 100));
+		}
+		capacityPBar.setProgress(progress);
+	}
+	
+	public static String getGB_Number(long size, int bit) {
+		if (size > 1024 * 1024 * 1024) {
+			double div = (double) size / (1024 * 1024 * 1024.0);
+			return getDecimalsVal(div, bit) + "G";
+		} else if (size > 1024 * 1024) {
+			double div = (double) size / (1024 * 1024.0);
+			return getDecimalsVal(div, bit) + "M";
+		} else if (size == 0) {
+			return "0M";
+		} else {
+			return getMB_Decimal(size);
+		}
+	}
+
+	public static String getDecimalsVal(double val, int bit) {
+		BigDecimal bd = new BigDecimal(val);
+		bd = bd.setScale(bit, BigDecimal.ROUND_HALF_UP);
+
+		return bd.toString() + "";
+	}
+
+	public static String getMB_Number(long size) {
+
+		int m = (int) (size / (1024 * 1024));
+		if (m > 0) {
+			return new DecimalFormat("0.0").format(size / (1024 * 1024.0)) + "M";
+		}
+		return getMB_Decimal(size);
+
+	}
+
+	public static String getMB_Decimal(long size) {
+
+		double md = size / (1024 * 1024.0);
+
+		String mS = new Double(new DecimalFormat(".0").format(md)).toString();
+
+		int start = mS.lastIndexOf(".");
+
+		if (start > 0) {
+
+			int len = mS.substring(start + 1).length();
+
+			if (len == 1) {
+
+				return mS + "0MB";
+			}
+
+			return mS + "MB";
+		}
+
+		return mS + ".0MB";
+	}
 }

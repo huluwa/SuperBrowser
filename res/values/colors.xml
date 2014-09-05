@@ -25,5 +25,7 @@
 	
 	<color name="browser_color_ffffffff">#ffffffff</color>
 	
-	
+	<color name="browser_color_ff000000">#ff000000</color>
+	<color name="browser_color_ffdbdbdb">#ffdbdbdb</color>
+	<color name="browser_color_405c5c5c">#405c5c5c</color>
 </resources>

@@ -15,7 +15,7 @@
    GNU General Public License for more details.
  -->
 
-<resources>        
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">        
     <string name="ApplicationName">Zirco Browser</string>
     <string name="ApplicationNameUrl">Zirco - %s</string>
     <string name="ApplicationDescription">Zirco is an open-source browser for Android.</string>
@@ -533,5 +533,7 @@
     
     <!-- 0.4.3 -->
     <string name="VideoLoading">Loading video\u2026</string>
+    
+    <string name="download_videos_manage_space">&#160;&#160;已用&#160;&#160;<xliff:g id="usedspace">%s</xliff:g>&#160;，剩余可用&#160;&#160;<xliff:g id="freespace">%s</xliff:g></string>
     
 </resources>

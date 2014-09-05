@@ -1,32 +1,47 @@
 package org.zirco.model.adapters;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.zirco.ui.fragment.BaseFragment;
 import org.zirco.ui.fragment.CellFragment;
 import org.zirco.ui.fragment.WebviewFragment;
 
+
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.ViewGroup;
 
 public class TabPagerAdapter extends FragmentPagerAdapter {
 	
 	private ArrayList<BaseFragment> fragments;
-	private FragmentManager mFragmentManager;
+	private int mCurrPosition = 0;
 	
-	public TabPagerAdapter(FragmentManager fm) {
+	public TabPagerAdapter(Context context, FragmentManager fm) {
 		super(fm);
-		mFragmentManager = fm;
 		fragments = new ArrayList<BaseFragment>();
-		fragments.add(new CellFragment());
-		fragments.add(new WebviewFragment());
+//		fragments.add(new CellFragment());
+//		fragments.add(new WebviewFragment(context));
+//		fragments.add(new WebviewFragment(context));
+//		fragments.add(new WebviewFragment(context));
+	}
+
+	@Override
+	public void setPrimaryItem(ViewGroup container, int position, Object object) {
+		// TODO Auto-generated method stub
+		super.setPrimaryItem(container, position, object);
+		mCurrPosition = position;
+//		Log.i("chenyg", "TabPagerAdapter:setPrimaryItem(), position=" + position);
 	}
 
 	@Override
 	public Fragment getItem(int position) {
-		if(fragments != null) {
+		Log.i("chenyg", "TabPagerAdapter:getItem(), position=" + position);
+		if(fragments != null && !fragments.isEmpty()) {
 			return fragments.get(position);
 		}
 		return null;
@@ -34,10 +49,20 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 
     @Override
 	public int getCount() {
-    	if(fragments != null) {
+//    	Log.i("chenyg", "TabPagerAdapter:getCount(), fragments.size()=" + fragments.size());
+    	if(fragments != null && !fragments.isEmpty()) {
     		return fragments.size();
     	}
     	return 0;
+	}
+    
+	
+	public int getCurrentPosition() {
+		return mCurrPosition;
+	}
+    
+	public List<BaseFragment> getFragments() {
+		return fragments;
 	}
     
     /**
@@ -49,7 +74,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 	public int addView(BaseFragment f) {
 		return addView(f, fragments.size());
 	}
-    
+	
 	/**
 	 * Add "Fragment" at "position" to "Fragments".
 	 * 

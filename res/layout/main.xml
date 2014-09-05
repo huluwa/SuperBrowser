@@ -24,12 +24,6 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" >
 
-        <ViewFlipper
-            android:id="@+id/ViewFlipper"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:visibility="gone" />
-        
         <!-- 顶部导航栏 -->
         
         <LinearLayout
@@ -225,7 +219,7 @@
                 android:layout_marginTop="7dip"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_bottom"
-                android:src="@drawable/ic_btn_close_tab" >
+                android:src="@drawable/ic_btn_menu" >
             </ImageButton>
 
             <ImageButton

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.zirco.ui.fragment.BaseFragment;
-import org.zirco.ui.fragment.CellFragment;
+import org.zirco.ui.fragment.HomeFragment;
 import org.zirco.ui.fragment.WebviewFragment;
 
 

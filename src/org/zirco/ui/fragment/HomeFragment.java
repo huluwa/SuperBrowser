@@ -1,7 +1,7 @@
 package org.zirco.ui.fragment;
 
 import org.zirco.R;
-import org.zirco.model.adapters.CellPagerAdapter;
+import org.zirco.model.adapters.HomePagerAdapter;
 import org.zirco.ui.view.PagerSlidingTabStrip;
 import org.zirco.ui.view.NestedViewPager;
 
@@ -14,16 +14,16 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 
-public class CellFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment {
 
 	private Activity mActivity;
 	private NestedViewPager mCellViewPager;
-	private CellPagerAdapter mCellPagerAdapter;
+	private HomePagerAdapter mCellPagerAdapter;
 	private PagerSlidingTabStrip mPagerSlidingTabStrip;
 	
 	private LinearLayout mRootLinearLayout;
 	
-	public CellFragment() {
+	public HomeFragment() {
 		setType(BaseFragment.TYPE_CELL_FRAGMENT);
 	}
 	
@@ -66,7 +66,7 @@ public class CellFragment extends BaseFragment {
 		Log.i("chenyg", "CellFragment-->initViewPagerAndTab()");
 		mCellViewPager = (NestedViewPager) mRootLinearLayout.findViewById(R.id.cell_viewpager);
 		mCellViewPager.setPagingEnabled(true);
-		mCellPagerAdapter = new CellPagerAdapter(getChildFragmentManager());
+		mCellPagerAdapter = new HomePagerAdapter(getChildFragmentManager());
 		mCellViewPager.setAdapter(mCellPagerAdapter);
 		mCellViewPager.setCurrentItem(0);
 		

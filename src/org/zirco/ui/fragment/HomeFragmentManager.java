@@ -3,11 +3,11 @@ package org.zirco.ui.fragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-public class CellFragmentManager {
+public class HomeFragmentManager {
 
     private BaseFragment[] fragments;
 
-    public CellFragmentManager() {
+    public HomeFragmentManager() {
         fragments = new BaseFragment[2];
     }
 
@@ -15,13 +15,13 @@ public class CellFragmentManager {
         switch (pageId) {
         case 0:
             if (fragments[pageId] == null) {
-                fragments[pageId] = new CellNavigatFragment();
+                fragments[pageId] = new HomeNavigatFragment();
             }
             break;
 
         case 1:
             if (fragments[pageId] == null) {
-                fragments[pageId] = new CellCommonFragment();
+                fragments[pageId] = new HomeCommonFragment();
             }
             break;
             

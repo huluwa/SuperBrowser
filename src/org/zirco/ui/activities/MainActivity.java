@@ -36,7 +36,7 @@ import org.zirco.ui.activities.preferences.PreferencesActivity;
 import org.zirco.ui.components.CustomWebView;
 import org.zirco.ui.components.CustomWebViewClientCallback;
 import org.zirco.ui.fragment.BaseFragment;
-import org.zirco.ui.fragment.CellFragment;
+import org.zirco.ui.fragment.HomeFragment;
 import org.zirco.ui.fragment.WebviewFragment;
 import org.zirco.ui.runnables.HideToolbarsRunnable;
 import org.zirco.ui.view.NestedViewPager;
@@ -712,7 +712,7 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 //    	mCurrentWebView = (CustomWebView) view.findViewById(R.id.webview);
 //    	initializeCurrentWebView();
     	if(navigateToHome) {
-    		mCurrentFragment = new CellFragment();
+    		mCurrentFragment = new HomeFragment();
 //    		mCurrentFragment = new WebviewFragment(this);
     	} else {
     		mCurrentFragment = new WebviewFragment(this);

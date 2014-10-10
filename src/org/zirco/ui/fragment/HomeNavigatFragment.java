@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CellNavigatFragment extends BaseFragment {
+public class HomeNavigatFragment extends BaseFragment {
 
 	@Override
 	public void onAttach(Activity activity) {

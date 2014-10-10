@@ -23,6 +23,9 @@ public class CellFragment extends BaseFragment {
 	
 	private LinearLayout mRootLinearLayout;
 	
+	public CellFragment() {
+		setType(BaseFragment.TYPE_CELL_FRAGMENT);
+	}
 	
 	@Override
 	public void onAttach(Activity activity) {

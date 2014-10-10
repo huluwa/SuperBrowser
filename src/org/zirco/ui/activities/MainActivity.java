@@ -94,13 +94,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 import android.widget.Toast;
 
 /**
  * The application main activity.
  */
-public class MainActivity extends FragmentActivity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener, CustomWebViewClientCallback {
+public class MainActivity extends FragmentActivity implements IToolbarsContainer, OnTouchListener, IDownloadEventsListener {
 	
 	public static MainActivity INSTANCE = null;
 	
@@ -131,57 +132,45 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 	private LinearLayout mTopBar;
 	private LinearLayout mBottomBar;
 	private LinearLayout mFindBar;
-	
 	//查找框
 	private ImageButton mFindPreviousButton;
 	private ImageButton mFindNextButton;
 	private ImageButton mFindCloseButton;
 	private EditText mFindText;
-	
-	private ImageView mPreviousTabView;
-	private ImageView mNextTabView;
-	
+	//导航框
 	private ImageButton mToolsButton;
 	private AutoCompleteTextView mUrlEditText;
 	private ImageButton mGoButton;	
 	private ProgressBar mProgressBar;
-	
-	private ImageView mBubbleRightView;
-	private ImageView mBubbleLeftView;
-	
-	private CustomWebView mCurrentWebView;
-	private BaseFragment mCurrentFragment;
-	private NestedViewPager mCurrentTabViewPager;
-	private List<NestedViewPager> mTabViewPagers;
-	private TabPagerAdapter mTabPagerAdapter;
-	
+	private Drawable mCircularProgress;
+	private TextWatcher mUrlTextWatcher;
+	private QuickActionGrid mToolsActionGrid;
+	// 下方工具栏
 	private ImageButton mPreviousButton;
 	private ImageButton mNextButton;
-	
+	private ImageButton mRemoveButton;
 	private ImageButton mNewTabButton;
-	private ImageButton mRemoveTabButton;
-	
+	private ImageButton mMenuButton;
 	private ImageButton mQuickButton;
 	
-	private Drawable mCircularProgress;
+	private CustomWebView mCurrentWebView;
+	private View mCustomView;
+	private BaseFragment mCurrentFragment;
+	private NestedViewPager mCurrentTabViewPager;
+	private TabPagerAdapter mTabPagerAdapter;
+	private List<NestedViewPager> mTabViewPagers;
 	
 	private boolean mUrlBarVisible;
 	private boolean mToolsActionGridVisible = false;
 	private boolean mFindDialogVisible = false;
 	
-	private TextWatcher mUrlTextWatcher;
-	
+
 	private HideToolbarsRunnable mHideToolbarsRunnable;
-	
 //	private GestureDetector mGestureDetector;
-	
-	private QuickActionGrid mToolsActionGrid;
 	
 	private ValueCallback<Uri> mUploadMessage;
 	
 	private OnSharedPreferenceChangeListener mPreferenceChangeListener;
-	
-	private View mCustomView;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -269,7 +258,6 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
     
 	@Override
 	public View onCreateView(String name, Context context, AttributeSet attrs) {
-    	Log.i("chenyg", "onCreateView()");
 		return super.onCreateView(name, context, attrs);
 	}
 
@@ -316,6 +304,7 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
      */
     @Override
 	protected void onNewIntent(Intent intent) {
+    	Log.i("chenyg", "onNewIntent()");
     	if (intent.getData() != null) {
     		addTab(false);
     		navigateToUrl(intent.getDataString());
@@ -396,24 +385,6 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 //    	Controller.getInstance().setWebViewList(mWebViews);
 //    	mWebviewFragments = new ArrayList<WebviewFragment>();
     	
-    	mBubbleRightView = (ImageView) findViewById(R.id.BubbleRightView);
-    	mBubbleRightView.setOnClickListener(new View.OnClickListener() {
-    		@Override
-			public void onClick(View v) {
-				setToolbarsVisibility(true);				
-			}
-		});    	
-    	mBubbleRightView.setVisibility(View.GONE);
-    	
-    	mBubbleLeftView = (ImageView) findViewById(R.id.BubbleLeftView);
-    	mBubbleLeftView.setOnClickListener(new View.OnClickListener() {			
-			@Override
-			public void onClick(View v) {
-				setToolbarsVisibility(true);
-			}
-		});
-    	mBubbleLeftView.setVisibility(View.GONE);
-    	
     	mTopBar = (LinearLayout) findViewById(R.id.BarLayout);    	
     	mTopBar.setOnClickListener(new OnClickListener() {			
 			@Override
@@ -432,24 +403,6 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
     	
     	mFindBar = (LinearLayout) findViewById(R.id.findControls);
     	mFindBar.setVisibility(View.GONE);
-    	
-    	mPreviousTabView = (ImageView) findViewById(R.id.PreviousTabView);
-    	mPreviousTabView.setOnClickListener(new View.OnClickListener() {			
-			@Override
-			public void onClick(View v) {
-				showPreviousTab(true);
-			}
-		});
-    	mPreviousTabView.setVisibility(View.GONE);
-    	
-    	mNextTabView = (ImageView) findViewById(R.id.NextTabView);
-    	mNextTabView.setOnClickListener(new View.OnClickListener() {			
-			@Override
-			public void onClick(View v) {
-				showNextTab(true);
-			}
-		});
-    	mNextTabView.setVisibility(View.GONE);
     	
     	String[] from = new String[] {UrlSuggestionCursorAdapter.URL_SUGGESTION_TITLE, UrlSuggestionCursorAdapter.URL_SUGGESTION_URL};
     	int[] to = new int[] {R.id.AutocompleteTitle, R.id.AutocompleteUrl};
@@ -480,24 +433,24 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 			}
 		});
     	
+    	
     	mUrlEditText = (AutoCompleteTextView) findViewById(R.id.UrlText);
     	mUrlEditText.setThreshold(1);
-    	mUrlEditText.setAdapter(adapter);    	
+    	mUrlEditText.setAdapter(adapter);    
     	
     	mUrlEditText.setOnKeyListener(new View.OnKeyListener() {
-
-			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {												
-				if (keyCode == KeyEvent.KEYCODE_ENTER) {
-					navigateToUrl();
-					return true;
-				}
-				
-				return false;
-			}
+    		
+    		@Override
+    		public boolean onKey(View v, int keyCode, KeyEvent event) {												
+    			if (keyCode == KeyEvent.KEYCODE_ENTER) {
+    				navigateToUrl();
+    				return true;
+    			}
+    			
+    			return false;
+    		}
     		
     	});
-    	
 
     	mUrlTextWatcher = new TextWatcher() {			
     		@Override
@@ -577,17 +530,24 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
             }          
         });
 		
-		mRemoveTabButton = (ImageButton) findViewById(R.id.RemoveTabBtn);
-		mRemoveTabButton.setOnClickListener(new View.OnClickListener() {
+		mMenuButton = (ImageButton) findViewById(R.id.MenuBtn);
+		mMenuButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-            	if (mCurrentTabViewPager.getChildCount() == 1 && !mCurrentWebView.getUrl().equals(Constants.URL_ABOUT_START)) {
-            		navigateToHome();
-                	updateUI();
-            	} else {
-            		removeCurrentTab();
-            	}
-            }          
+            	MainActivity.this.findViewById(R.id.menu_layout).setVisibility(View.VISIBLE);
+            }
         });
+		
+//		mRemoveButton = (ImageButton) findViewById(R.id.RemoveBtn);
+//		mRemoveButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//            	if (mCurrentTabViewPager.getChildCount() == 1 && !mCurrentWebView.getUrl().equals(Constants.URL_ABOUT_START)) {
+//            		navigateToHome();
+//                	updateUI();
+//            	} else {
+//            		removeCurrentTab();
+//            	}
+//            }          
+//        });
 		
 		mQuickButton = (ImageButton) findViewById(R.id.QuickBtn);
 		mQuickButton.setOnClickListener(new View.OnClickListener() {
@@ -656,9 +616,10 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 		
 		@Override
 		public void onPageSelected(int arg0) {
-			Log.i("chenyg", "onPageChangeListener.onPageSelected(), arg0=" + arg0);
+			Log.i("chenyg", "onPageChangeListener.onPageSelected(), Position index=" + arg0);
+			mTabPagerAdapter.setCurrentPosition(arg0);
 			mCurrentFragment = (BaseFragment) mTabPagerAdapter.getItem(mTabPagerAdapter.getCurrentPosition());
-			if(mCurrentFragment instanceof WebviewFragment) {
+			if(mCurrentFragment.getType() == BaseFragment.TYPE_WEB_FRAGMENT) {
 				mCurrentWebView = ((WebviewFragment) mCurrentFragment).getCustomWebView();
 			}
 		}
@@ -752,6 +713,7 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 //    	initializeCurrentWebView();
     	if(navigateToHome) {
     		mCurrentFragment = new CellFragment();
+//    		mCurrentFragment = new WebviewFragment(this);
     	} else {
     		mCurrentFragment = new WebviewFragment(this);
     	}
@@ -852,56 +814,34 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
      */
     private void setToolbarsVisibility(boolean visible) {
     	    	
-//    	boolean showPreviousTabView = mViewFlipper.getDisplayedChild() > 0;
-//		boolean showNextTabView = mViewFlipper.getDisplayedChild() < mViewFlipper.getChildCount() - 1;
-    	boolean showPreviousTabView = mTabPagerAdapter.getCurrentPosition() > 0;
-		boolean showNextTabView = mTabPagerAdapter.getCurrentPosition() < mTabPagerAdapter.getCount() - 1;
-    	
-    	if (visible) {
-    		
-    		if (!mUrlBarVisible) {    			
-    			mTopBar.startAnimation(AnimationManager.getInstance().getTopBarShowAnimation());
-    			mBottomBar.startAnimation(AnimationManager.getInstance().getBottomBarShowAnimation());
-    			
-    			mTopBar.setVisibility(View.VISIBLE);
-    			mBottomBar.setVisibility(View.VISIBLE);
-
-    			mBubbleRightView.setVisibility(View.GONE);
-    			mBubbleLeftView.setVisibility(View.GONE);
-    		}
-    		
-    		startToolbarsHideRunnable();
-    		
-    		mUrlBarVisible = true;    		    		
-    		
-    	} else {  	
-    		
-    		if (mUrlBarVisible) {
-    			mTopBar.startAnimation(AnimationManager.getInstance().getTopBarHideAnimation());
-    			mBottomBar.startAnimation(AnimationManager.getInstance().getBottomBarHideAnimation());    			    			
-    			
-    			mTopBar.setVisibility(View.GONE);
-    			mBottomBar.setVisibility(View.GONE);
-    			
-    			String bubblePosition = Controller.getInstance().getPreferences().getString(Constants.PREFERENCES_GENERAL_BUBBLE_POSITION, "right");
-
-    			if (bubblePosition.equals("right")) {
-    				mBubbleRightView.setVisibility(View.VISIBLE);
-    				mBubbleLeftView.setVisibility(View.GONE);
-    			} else if (bubblePosition.equals("left")) {
-    				mBubbleRightView.setVisibility(View.GONE);
-    				mBubbleLeftView.setVisibility(View.VISIBLE);
-    			} else if (bubblePosition.equals("both")) {
-    				mBubbleRightView.setVisibility(View.VISIBLE);
-    				mBubbleLeftView.setVisibility(View.VISIBLE);
-    			} else {
-    				mBubbleRightView.setVisibility(View.VISIBLE);
-    				mBubbleLeftView.setVisibility(View.GONE);
-    			}
-    		}
-			
-			mUrlBarVisible = false;
-    	}
+//    	if (visible) {
+//    		
+//    		if (!mUrlBarVisible) {    			
+//    			mTopBar.startAnimation(AnimationManager.getInstance().getTopBarShowAnimation());
+//    			mBottomBar.startAnimation(AnimationManager.getInstance().getBottomBarShowAnimation());
+//    			
+//    			mTopBar.setVisibility(View.VISIBLE);
+//    			mBottomBar.setVisibility(View.VISIBLE);
+//
+//    		}
+//    		
+//    		startToolbarsHideRunnable();
+//    		
+//    		mUrlBarVisible = true;    		    		
+//    		
+//    	} else {  	
+//    		
+//    		if (mUrlBarVisible) {
+//    			mTopBar.startAnimation(AnimationManager.getInstance().getTopBarHideAnimation());
+//    			mBottomBar.startAnimation(AnimationManager.getInstance().getBottomBarHideAnimation());    			    			
+//    			
+//    			mTopBar.setVisibility(View.GONE);
+//    			mBottomBar.setVisibility(View.GONE);
+//    			
+//    		}
+//			
+//			mUrlBarVisible = false;
+//    	}
     }
     
     private void showKeyboardForFindDialog() {
@@ -1053,9 +993,9 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
     	mUrlEditText.clearFocus();
     	
     	hideKeyboard(true);
-    	mCurrentWebView.goBack();
+    	int index = mCurrentTabViewPager.getCurrentItem();
+    	mCurrentTabViewPager.setCurrentItem(--index);
     }
-    
     /**
      * Navigate to the next page in history. 
      */
@@ -1064,7 +1004,8 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
     	mUrlEditText.clearFocus();
     	
     	hideKeyboard(true);
-    	mCurrentWebView.goForward();
+    	int index = mCurrentTabViewPager.getCurrentItem();
+    	mCurrentTabViewPager.setCurrentItem(++index);
     }
 
 	@Override
@@ -1201,7 +1142,7 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 	/**
 	 * Update the "Go" button image.
 	 */
-	private void updateGoButton() {		
+	private void updateGoButton() {
 		if (mCurrentWebView.isLoading()) {
 			mGoButton.setImageResource(R.drawable.ic_btn_stop);			
 			mUrlEditText.setCompoundDrawablesWithIntrinsicBounds(null, null, mCircularProgress, null);
@@ -1240,14 +1181,14 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 				mUrlEditText.setText(mCurrentWebView.getUrl());
 			mUrlEditText.addTextChangedListener(mUrlTextWatcher);
 			
-			mPreviousButton.setEnabled(mCurrentWebView.canGoBack());
-			mNextButton.setEnabled(mCurrentWebView.canGoForward());
+			mPreviousButton.setEnabled(mCurrentTabViewPager.getCurrentItem() > 0);
+			mNextButton.setEnabled(mCurrentTabViewPager.getCurrentItem() < mCurrentTabViewPager.getChildCount());
 			
-			if (mCurrentWebView.getUrl() != null) {
-				mRemoveTabButton.setEnabled((mCurrentTabViewPager.getChildCount() > 1 || !mCurrentWebView.getUrl().equals(Constants.URL_ABOUT_START)));
-			} else {
-				mRemoveTabButton.setEnabled(mCurrentTabViewPager.getChildCount() > 1);
-			}
+//			if (mCurrentWebView.getUrl() != null) {
+//				mMenuButton.setEnabled((mCurrentTabViewPager.getChildCount() > 1 || !mCurrentWebView.getUrl().equals(Constants.URL_ABOUT_START)));
+//			} else {
+//				mMenuButton.setEnabled(mCurrentTabViewPager.getChildCount() > 1);
+//			}
 			
 			mProgressBar.setProgress(mCurrentWebView.getProgress());
 		
@@ -1496,72 +1437,72 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 		}
 	}
 	
-	public void onPageFinished(String url) {
-		updateUI();			
-		
-		if ((Controller.getInstance().getPreferences().getBoolean(Constants.PREFERENCES_ADBLOCKER_ENABLE, true)) &&
-				(!checkInAdBlockWhiteList(mCurrentWebView.getUrl()))) {
-			mCurrentWebView.loadAdSweep();
-		}
-		WebIconDatabase.getInstance().retainIconForPageUrl(mCurrentWebView.getUrl());
-		
-		if (mUrlBarVisible) {
-			startToolbarsHideRunnable();
-		}
-	}
-	
-	public void onPageStarted(String url) {
-		if (mFindDialogVisible) {
-			closeFindDialog();
-		}
-		
-		mUrlEditText.removeTextChangedListener(mUrlTextWatcher);
-		mUrlEditText.setText(url);
-		mUrlEditText.addTextChangedListener(mUrlTextWatcher);
-		
-		mPreviousButton.setEnabled(false);
-		mNextButton.setEnabled(false);
-		
-		updateGoButton();
-		
-		setToolbarsVisibility(true);
-	}
-	
-	public void onUrlLoading(String url) {
-		setToolbarsVisibility(true);
-	}
-	
-	public void onMailTo(String url) {
-		Intent sendMail = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-		startActivity(sendMail);
-	}
-	
-	public void onExternalApplicationUrl(String url) {
-		try {
-			
-			Intent i  = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-			startActivity(i);
-			
-		} catch (Exception e) {
-			
-			// Notify user that the vnd url cannot be viewed.
-			new AlertDialog.Builder(this)
-			.setTitle(R.string.Main_VndErrorTitle)
-			.setMessage(String.format(getString(R.string.Main_VndErrorMessage), url))
-			.setPositiveButton(android.R.string.ok,
-					new AlertDialog.OnClickListener()
-			{
-				public void onClick(DialogInterface dialog, int which) { }
-			})
-			.setCancelable(true)
-			.create()
-			.show();
-		}
-	}
-	
-	public void setHttpAuthUsernamePassword(String host, String realm, String username, String password) {
-		mCurrentWebView.setHttpAuthUsernamePassword(host, realm, username, password);
-	}
+//	public void onPageFinished(String url) {
+//		updateUI();			
+//		
+//		if ((Controller.getInstance().getPreferences().getBoolean(Constants.PREFERENCES_ADBLOCKER_ENABLE, true)) &&
+//				(!checkInAdBlockWhiteList(mCurrentWebView.getUrl()))) {
+//			mCurrentWebView.loadAdSweep();
+//		}
+//		WebIconDatabase.getInstance().retainIconForPageUrl(mCurrentWebView.getUrl());
+//		
+//		if (mUrlBarVisible) {
+//			startToolbarsHideRunnable();
+//		}
+//	}
+//	
+//	public void onPageStarted(String url) {
+//		if (mFindDialogVisible) {
+//			closeFindDialog();
+//		}
+//		
+//		mUrlEditText.removeTextChangedListener(mUrlTextWatcher);
+//		mUrlEditText.setText(url);
+//		mUrlEditText.addTextChangedListener(mUrlTextWatcher);
+//		
+//		mPreviousButton.setEnabled(false);
+//		mNextButton.setEnabled(false);
+//		
+//		updateGoButton();
+//		
+//		setToolbarsVisibility(true);
+//	}
+//	
+//	public void onUrlLoading(String url) {
+//		setToolbarsVisibility(true);
+//	}
+//	
+//	public void onMailTo(String url) {
+//		Intent sendMail = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//		startActivity(sendMail);
+//	}
+//	
+//	public void onExternalApplicationUrl(String url) {
+//		try {
+//			
+//			Intent i  = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//			startActivity(i);
+//			
+//		} catch (Exception e) {
+//			
+//			// Notify user that the vnd url cannot be viewed.
+//			new AlertDialog.Builder(this)
+//			.setTitle(R.string.Main_VndErrorTitle)
+//			.setMessage(String.format(getString(R.string.Main_VndErrorMessage), url))
+//			.setPositiveButton(android.R.string.ok,
+//					new AlertDialog.OnClickListener()
+//			{
+//				public void onClick(DialogInterface dialog, int which) { }
+//			})
+//			.setCancelable(true)
+//			.create()
+//			.show();
+//		}
+//	}
+//	
+//	public void setHttpAuthUsernamePassword(String host, String realm, String username, String password) {
+//		mCurrentWebView.setHttpAuthUsernamePassword(host, realm, username, password);
+//	}
 	
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {

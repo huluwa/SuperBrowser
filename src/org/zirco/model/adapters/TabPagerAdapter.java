@@ -34,13 +34,12 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 	public void setPrimaryItem(ViewGroup container, int position, Object object) {
 		// TODO Auto-generated method stub
 		super.setPrimaryItem(container, position, object);
-		mCurrPosition = position;
 //		Log.i("chenyg", "TabPagerAdapter:setPrimaryItem(), position=" + position);
 	}
 
 	@Override
 	public Fragment getItem(int position) {
-		Log.i("chenyg", "TabPagerAdapter:getItem(), position=" + position);
+//		Log.i("chenyg", "TabPagerAdapter:getItem(), position=" + position);
 		if(fragments != null && !fragments.isEmpty()) {
 			return fragments.get(position);
 		}
@@ -56,6 +55,9 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
     	return 0;
 	}
     
+    public void setCurrentPosition(int position) {
+		mCurrPosition = position;
+    }
 	
 	public int getCurrentPosition() {
 		return mCurrPosition;

@@ -31,7 +31,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/GoBtn"
             android:background="@drawable/tb_background_top"
             android:orientation="vertical"
             android:scaleType="fitXY"
@@ -141,41 +140,6 @@
                 android:src="@drawable/ic_btn_close_panel" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/BubbleRightView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/bubbleright48" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/BubbleLeftView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/bubbleleft48" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/PreviousTabView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/previous_tab" >
-        </ImageView>
-
-        <ImageView
-            android:id="@+id/NextTabView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/next_tab" >
-        </ImageView>
         
         <!-- 底部控制栏 -->
 
@@ -212,7 +176,7 @@
             </ImageButton>
 
             <ImageButton
-                android:id="@+id/RemoveTabBtn"
+                android:id="@+id/MenuBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dip"
@@ -253,6 +217,18 @@
             android:background="@color/browser_color_fff6f6f6"
             android:layout_below="@id/BarLayout"
             android:layout_above="@id/BottomBarLayout" />
+        
+        
+        <RelativeLayout
+            android:id="@+id/menu_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="150dip"
+            android:layout_above="@id/BottomBarLayout"
+            android:layout_alignBottom="@id/detailplay_half_detail_viewpager"
+            android:background="@color/browser_color_6633B5E5"
+            android:visibility="gone" >
+        </RelativeLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

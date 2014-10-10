@@ -71,6 +71,7 @@ public class WebviewFragment extends BaseFragment implements CustomWebViewClient
 	        ViewGroup.LayoutParams.MATCH_PARENT);
 	
 	public WebviewFragment(Context context) {
+		setType(BaseFragment.TYPE_WEB_FRAGMENT);
 		
 //		layout = new RelativeLayout(context);
 //		RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
@@ -106,8 +107,10 @@ public class WebviewFragment extends BaseFragment implements CustomWebViewClient
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		layout = (RelativeLayout) inflater.inflate(R.layout.webview, null, false);
-		mCustomWebView = (CustomWebView) layout.findViewById(R.id.webview);
+		if (layout == null) {
+			layout = (RelativeLayout) inflater.inflate(R.layout.webview, null, false);
+			mCustomWebView = (CustomWebView) layout.findViewById(R.id.webview);
+		}
 		return layout;
 	}
 	
@@ -484,6 +487,13 @@ public class WebviewFragment extends BaseFragment implements CustomWebViewClient
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
+		
+		if (layout != null) {
+			ViewGroup parentViewGroup = (ViewGroup) layout.getParent();
+			if(parentViewGroup != null) {
+				parentViewGroup.removeView(layout);
+			}
+		}
 	}
 
 	@Override

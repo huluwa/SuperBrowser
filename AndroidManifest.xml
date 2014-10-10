@@ -37,6 +37,7 @@
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true" />
+    
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -46,6 +47,7 @@
     <application
         android:icon="@drawable/icon"
         android:label="@string/ApplicationName"
+        android:hardwareAccelerated="true" 
         android:name="org.zirco.BrowserApplication" >
         <activity
             android:name="org.zirco.ui.activities.MainActivity"

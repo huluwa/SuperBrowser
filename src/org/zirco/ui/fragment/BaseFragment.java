@@ -1,19 +1,21 @@
 package org.zirco.ui.fragment;
 
-import org.zirco.R;
-
-import android.app.Activity;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.RelativeLayout.LayoutParams;
 
 public abstract class BaseFragment extends Fragment {
+	
+	public final static int TYPE_CELL_FRAGMENT = 101; //导航页
+	public final static int TYPE_WEB_FRAGMENT = 102; //网页
+	
+	protected int mType;
+	
+	public void setType(int type) {
+		mType = type;
+	}
+	
+	public int getType() {
+		return mType;
+	}
 //
 //
 //    /** 根布局 */

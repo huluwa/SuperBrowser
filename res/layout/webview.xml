@@ -23,12 +23,33 @@
         android:id="@+id/webview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
-    
-    <TextView 
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="test"
-        android:textColor="@color/browser_color_6633B5E5"/>
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv01"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:text="test01"
+            android:textColor="@color/browser_color_6633B5E5" />
+
+        <TextView
+            android:id="@+id/tv02"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:text="test02"
+            android:textColor="#663ff5E5" />
+
+        <TextView
+            android:id="@+id/tv03"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:text="test03"
+            android:textColor="#66eff5f0" />
+    </LinearLayout>
 
 </RelativeLayout>

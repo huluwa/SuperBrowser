@@ -53,6 +53,11 @@
             android:name="org.zirco.ui.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/ApplicationName" >
+        </activity>
+        <activity
+            android:name="org.zirco.ui.activities.MainActivity02"
+            android:configChanges="keyboardHidden|orientation"
+            android:label="@string/ApplicationName" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

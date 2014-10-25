@@ -5,15 +5,12 @@ import java.util.List;
 
 import org.zirco.ui.fragment.BaseFragment;
 import org.zirco.ui.fragment.HomeFragment;
-import org.zirco.ui.fragment.WebviewFragment;
-
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.ViewGroup;
 
 public class TabPagerAdapter extends FragmentPagerAdapter {
@@ -24,7 +21,7 @@ public class TabPagerAdapter extends FragmentPagerAdapter {
 	public TabPagerAdapter(Context context, FragmentManager fm) {
 		super(fm);
 		fragments = new ArrayList<BaseFragment>();
-//		fragments.add(new CellFragment());
+//		fragments.add(new HomeFragment());
 //		fragments.add(new WebviewFragment(context));
 //		fragments.add(new WebviewFragment(context));
 //		fragments.add(new WebviewFragment(context));

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- 底部控制栏 -->
+
+    <LinearLayout
+        android:id="@+id/BottomLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/tb_background_bottom"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/PreviousBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="7dip"
+            android:layout_weight="1"
+            android:background="@drawable/buttons_bottom"
+            android:src="@drawable/ic_btn_next" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/NextBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginRight="3dip"
+            android:layout_marginTop="7dip"
+            android:layout_weight="1"
+            android:background="@drawable/buttons_bottom"
+            android:src="@drawable/ic_btn_forward" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/MenuBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="7dip"
+            android:layout_weight="1"
+            android:background="@drawable/buttons_bottom"
+            android:src="@drawable/ic_btn_menu" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/NewTabBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="7dip"
+            android:layout_weight="1"
+            android:background="@drawable/buttons_bottom"
+            android:src="@drawable/ic_btn_open_tab" >
+        </ImageButton>
+
+        <ImageButton
+            android:id="@+id/QuickBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginTop="7dip"
+            android:layout_weight="1"
+            android:background="@drawable/buttons_bottom"
+            android:src="@drawable/ic_btn_home" >
+        </ImageButton>
+    </LinearLayout>
+
+</RelativeLayout>

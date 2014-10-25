@@ -19,6 +19,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Message;
@@ -640,6 +642,30 @@ public class WebviewFragment extends BaseFragment implements CustomWebViewClient
 	public boolean onTouch(View arg0, MotionEvent arg1) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	/**
+	 * Get a Drawable of the current favicon, with its size normalized relative to current screen density.
+	 * @return The normalized favicon.
+	 */
+	private BitmapDrawable getNormalizedFavicon() {
+		
+		BitmapDrawable favIcon = new BitmapDrawable(getResources(), mCustomWebView.getFavicon());
+		
+		if (mCustomWebView.getFavicon() != null) {
+			int imageButtonSize = ApplicationUtils.getImageButtonSize(mActivity);
+			int favIconSize = ApplicationUtils.getFaviconSize(mActivity);
+			
+			Bitmap bm = Bitmap.createBitmap(imageButtonSize, imageButtonSize, Bitmap.Config.ARGB_4444);
+			Canvas canvas = new Canvas(bm);
+			
+			favIcon.setBounds((imageButtonSize / 2) - (favIconSize / 2), (imageButtonSize / 2) - (favIconSize / 2), (imageButtonSize / 2) + (favIconSize / 2), (imageButtonSize / 2) + (favIconSize / 2));
+			favIcon.draw(canvas);
+			
+			favIcon = new BitmapDrawable(getResources(), bm);
+		}
+		
+		return favIcon;
 	}
 
 }

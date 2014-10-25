@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!-- 顶部导航栏 -->
+
+    <LinearLayout
+        android:id="@+id/BarLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/tb_background_top"
+        android:orientation="vertical" >
+
+        <ProgressBar
+            android:id="@+id/WebViewProgress"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dip"
+            android:layout_marginRight="3dip"
+            android:layout_marginTop="3dip"
+            android:indeterminate="false"
+            android:maxHeight="5px"
+            android:minHeight="5px" >
+        </ProgressBar>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/ToolsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="3dip"
+                android:layout_marginRight="0dip"
+                android:background="@drawable/buttons"
+                android:src="@drawable/fav_icn_default" >
+            </ImageButton>
+
+            <AutoCompleteTextView
+                android:id="@+id/UrlText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="0dip"
+                android:layout_marginTop="3dip"
+                android:layout_weight="0.75"
+                android:dropDownHeight="wrap_content"
+                android:dropDownWidth="fill_parent"
+                android:inputType="textUri" >
+            </AutoCompleteTextView>
+
+            <ImageButton
+                android:id="@+id/GoBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="0dip"
+                android:layout_marginRight="3dip"
+                android:background="@drawable/buttons"
+                android:src="@drawable/ic_btn_go" >
+            </ImageButton>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 顶部查找栏 -->
+
+    <LinearLayout
+        android:id="@+id/findControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@android:drawable/bottom_bar"
+        android:paddingBottom="1dip"
+        android:paddingLeft="4dip"
+        android:paddingRight="4dip"
+        android:paddingTop="5dip" >
+
+        <ImageButton
+            android:id="@+id/find_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_find_prev" />
+
+        <ImageButton
+            android:id="@+id/find_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_find_next" />
+
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dip"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <EditText
+                android:id="@+id/find_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:hint="@string/SearchDialog.Hint"
+                android:inputType="text"
+                android:scrollHorizontally="true"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/find_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_close_panel" />
+    </LinearLayout>
+
+</RelativeLayout>

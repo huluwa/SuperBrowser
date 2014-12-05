@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ui="http://schemas.android.com/apk/res/org.zirco"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffd3d3d3" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+
+            <br.com.dina.ui.widget.UITableView
+                android:id="@+id/tableView01"
+                style="@style/UITableView" />
+
+            <br.com.dina.ui.widget.UITableView
+                android:id="@+id/tableView02"
+                style="@style/UITableView" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

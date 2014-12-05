@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.zirco"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:duplicateParentState="true"
+    android:minHeight="40dip"
+    android:paddingLeft="10dip" >
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/content_page_large_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:text="设为默认浏览器" />
+
+    <me.xiaopan.android.switchbutton.SwitchButton
+        android:id="@+id/switch_main_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:checked="true"
+        android:paddingRight="10dip"
+        app:frameDrawable="@drawable/switch_frame"
+        app:sliderDrawable="@drawable/selector_switch_slider"
+        app:stateDrawable="@drawable/selector_switch_state"
+        app:stateMaskDrawable="@drawable/switch_state_mask"
+        app:withTextInterval="16dp" />
+
+</RelativeLayout>

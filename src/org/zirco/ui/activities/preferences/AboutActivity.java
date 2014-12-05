@@ -13,9 +13,10 @@
  * GNU General Public License for more details.
  */
 
-package org.zirco.ui.activities;
+package org.zirco.ui.activities.preferences;
 
 import org.zirco.R;
+import org.zirco.ui.activities.BaseActivity;
 
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -31,7 +32,7 @@ import android.widget.TextView;
 /**
  * About dialog activity.
  */
-public class AboutActivity extends Activity {
+public class AboutActivity extends BaseActivity {
 	
 	 @Override
 	 protected void onCreate(Bundle savedInstanceState) {

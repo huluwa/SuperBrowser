@@ -9,12 +9,15 @@ import org.zirco.ui.activities.DownloadsListActivity;
 import org.zirco.ui.activities.EditBookmarkActivity;
 import org.zirco.ui.activities.MainActivity02;
 import org.zirco.ui.activities.preferences.PreferencesActivity;
+import org.zirco.ui.activities.preferences.SettingsActivity;
 import org.zirco.ui.components.CustomWebView;
 import org.zirco.ui.fragment.BaseFragment;
 import org.zirco.ui.fragment.HomeFragment;
 import org.zirco.ui.fragment.WebviewFragment;
 import org.zirco.ui.menu.NavigatBar;
+import org.zirco.ui.menu.NavigatBarCallback;
 import org.zirco.ui.menu.ToolBar;
+import org.zirco.ui.menu.ToolBarCallback;
 import org.zirco.ui.view.NestedViewPager;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
@@ -31,7 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.ValueCallback;
 
-public class MainController {
+public class MainController implements ToolBarCallback, NavigatBarCallback {
 
 	private MainActivity02 mActivity;
 	
@@ -68,6 +71,8 @@ public class MainController {
 		
 		mNavigatBar = new NavigatBar(this, mActivity.getTopLayout());
 		mToolBar = new ToolBar(this, mActivity.getBottomLayout());
+		mToolBar.setToolBarCallback(this);
+		mNavigatBar.setNavigatBarCallback(this);
 		
 		initViewPagerAndTab();
     }
@@ -257,27 +262,6 @@ public class MainController {
     }
     
     /**
-     * Navigate to the previous page in history.
-     */
-    private void navigatePrevious() {
-    	// Needed to hide toolbars properly.
-    	mNavigatBar.clearFocus();
-    	
-    	int index = mCurrentTabViewPager.getCurrentItem();
-    	mCurrentTabViewPager.setCurrentItem(--index);
-    }
-    /**
-     * Navigate to the next page in history. 
-     */
-    private void navigateNext() {
-    	// Needed to hide toolbars properly.
-    	mNavigatBar.clearFocus();
-    	
-    	int index = mCurrentTabViewPager.getCurrentItem();
-    	mCurrentTabViewPager.setCurrentItem(++index);
-    }
-    
-    /**
 	 * Show a toast alert on tab switch.
 	 */
 	private void showToastOnTabSwitch() {
@@ -368,14 +352,6 @@ public class MainController {
 	}
 	
 	/**
-	 * Perform the user-defined action when clicking on the quick button.
-	 */
-	private void onQuickButton() {
-//		openBookmarksHistoryActivity();
-		addTab(true);
-	}
-	
-	/**
 	 * Open the "Add bookmark" dialog.
 	 */
 	private void openAddBookmarkDialog() {
@@ -411,6 +387,101 @@ public class MainController {
 		Intent preferencesActivity = new Intent(mActivity, PreferencesActivity.class);
 		mActivity.startActivity(preferencesActivity);
 	}
+
+	//--------------------------ToolBarCallback  bengin-----------------------------
+	
+	@Override
+	public void navigatePrevious() {
+    	// Needed to hide toolbars properly.
+    	mNavigatBar.clearFocus();
+    	
+    	int index = mCurrentTabViewPager.getCurrentItem();
+    	mCurrentTabViewPager.setCurrentItem(--index);
+	}
+
+	@Override
+	public void navigateNext() {
+    	// Needed to hide toolbars properly.
+    	mNavigatBar.clearFocus();
+    	
+    	int index = mCurrentTabViewPager.getCurrentItem();
+    	mCurrentTabViewPager.setCurrentItem(++index);
+	}
+
+	@Override
+	public void onQuickButton() {
+		addTab(true);
+	}
+
+	@Override
+	public void onCreateTabPage() {
+		addTab(true);
+	}
+
+	@Override
+	public void onRemoveTabPage() {
+		removeCurrentTab();
+	}
+
+	@Override
+	public void onOpenAddBookmarkDialog() {
+		openAddBookmarkDialog();
+	}
+
+	@Override
+	public void onOpenBookmarksHistoryActivity() {
+		openBookmarksHistoryActivity();
+	}
+
+	@Override
+	public void onOpenDownloadsList() {
+		openDownloadsList();
+	}
+
+	@Override
+	public void onOpenPreferences() {
+		openPreferences();
+	}
+
+	@Override
+	public void onQuit() {
+		Intent i = new Intent(mActivity, SettingsActivity.class);
+		mActivity.startActivity(i);
+//		mActivity.finish();
+//		android.os.Process.killProcess(android.os.Process.myPid());
+	}
+	
+	//--------------------------ToolBarCallback  end-----------------------------
+	
+	
+	//--------------------------NavigatBarCallback  begin-----------------------------
+
+	@Override
+	public void onFindPrevious(String target) {
+		mCurrentWebView.findNext(false);
+	}
+
+	@Override
+	public void onFindNext(String target) {
+		mCurrentWebView.findNext(true);
+	}
+
+	@Override
+	public void onNavigateToHome() {
+		navigateToHome();
+	}
+
+	@Override
+	public void onNavigateToUrl(String url) {
+		navigateToUrl(url);
+	}
+
+	@Override
+	public void onSharePage() {
+		ApplicationUtils.sharePage(mActivity, mCurrentWebView.getTitle(), mCurrentWebView.getUrl());
+	}
+	
+	//--------------------------NavigatBarCallback  end-----------------------------
 	
 	
 //	public void onPageFinished(String url) {

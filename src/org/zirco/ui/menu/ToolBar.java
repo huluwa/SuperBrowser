@@ -26,11 +26,11 @@ import android.widget.RelativeLayout;
 
 public class ToolBar {
 	
-	private static final int MENU_ADD_BOOKMARK = 101;
-	private static final int MENU_SHOW_BOOKMARKS = 102;
-	private static final int MENU_SHOW_DOWNLOADS = 103;	
-	private static final int MENU_PREFERENCES = 104;
-	private static final int MENU_EXIT = 105;
+	private static final int MENU_ADD_BOOKMARK = 0;
+	private static final int MENU_SHOW_BOOKMARKS = 1;
+	private static final int MENU_SHOW_DOWNLOADS = 2;	
+	private static final int MENU_PREFERENCES = 3;
+	private static final int MENU_EXIT = 4;
 	
 	// 布局
 	private LinearLayout mBottomBar;

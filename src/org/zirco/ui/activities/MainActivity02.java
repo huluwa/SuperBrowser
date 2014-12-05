@@ -102,7 +102,7 @@ import android.widget.Toast;
 /**
  * The application main activity.
  */
-public class MainActivity02 extends FragmentActivity implements IDownloadEventsListener, OnTouchListener {
+public class MainActivity02 extends BaseActivity implements IDownloadEventsListener, OnTouchListener {
 	
 	public static MainActivity02 INSTANCE = null;
 	
@@ -242,7 +242,7 @@ public class MainActivity02 extends FragmentActivity implements IDownloadEventsL
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-		outState.putString(Constants.EXTRA_SAVED_URL, mManController.getCurrentWebView().getUrl());
+//		outState.putString(Constants.EXTRA_SAVED_URL, mManController.getCurrentWebView().getUrl());
 		super.onSaveInstanceState(outState);
 	}
 

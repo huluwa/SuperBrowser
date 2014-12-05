@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  */
 
-package org.zirco.ui.activities;
+package org.zirco.ui.activities.preferences;
 
 import org.zirco.R;
 import org.zirco.utils.ApplicationUtils;

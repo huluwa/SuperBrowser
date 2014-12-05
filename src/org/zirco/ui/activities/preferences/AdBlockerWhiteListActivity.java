@@ -13,7 +13,7 @@
  * GNU General Public License for more details.
  */
 
-package org.zirco.ui.activities;
+package org.zirco.ui.activities.preferences;
 
 import org.zirco.R;
 import org.zirco.controllers.Controller;
@@ -44,7 +44,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 /**
  * AdBlocker white list activity.
  */
-public class MobileViewListActivity extends ListActivity {
+public class AdBlockerWhiteListActivity extends ListActivity {
 	
 	private static final int MENU_ADD = Menu.FIRST;
 	private static final int MENU_CLEAR = Menu.FIRST + 1;
@@ -58,9 +58,9 @@ public class MobileViewListActivity extends ListActivity {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mobile_view_list_activity);
+        setContentView(R.layout.adblocker_whitelist_activity);
         
-        setTitle(R.string.MobileViewListActivity_Title);
+        setTitle(R.string.AdBlockerWhiteListActivity_Title);
         
         mDbAdapter = new DbAdapter(this);
         mDbAdapter.open();
@@ -81,13 +81,13 @@ public class MobileViewListActivity extends ListActivity {
 	 * Fill the list view.
 	 */
 	private void fillData() {
-		mCursor = mDbAdapter.getMobileViewUrlCursor();
+		mCursor = mDbAdapter.getWhiteListCursor();
 		startManagingCursor(mCursor);
 		
-		String[] from = new String[] {DbAdapter.MOBILE_VIEW_URL_URL};
-    	int[] to = new int[] {R.id.MobileViewListRow_Title};
+		String[] from = new String[] {DbAdapter.ADBLOCK_URL};
+    	int[] to = new int[] {R.id.AdBlockerWhiteListRow_Title};
 		
-    	mCursorAdapter = new SimpleCursorAdapter(this, R.layout.mobile_view_list_row, mCursor, from, to);
+    	mCursorAdapter = new SimpleCursorAdapter(this, R.layout.adblocker_whitelist_row, mCursor, from, to);
 		setListAdapter(mCursorAdapter);
 		
 		setAnimation();
@@ -122,7 +122,7 @@ public class MobileViewListActivity extends ListActivity {
 		
 		long id = ((AdapterContextMenuInfo) menuInfo).id;
 		if (id != -1) {
-			menu.setHeaderTitle(mDbAdapter.getMobileViewUrlItemById(id));
+			menu.setHeaderTitle(mDbAdapter.getWhiteListItemById(id));
 		}		
 		
 		menu.add(0, MENU_DELETE, 0, R.string.Commons_Delete);
@@ -134,8 +134,8 @@ public class MobileViewListActivity extends ListActivity {
     	
     	switch (item.getItemId()) {
     	case MENU_DELETE:
-    		mDbAdapter.deleteFromMobileViewUrlList(info.id);
-    		Controller.getInstance().resetMobileViewUrlList();
+    		mDbAdapter.deleteFromWhiteList(info.id);
+    		Controller.getInstance().resetAdBlockWhiteList();
     		fillData();
     		return true;
     	default: return super.onContextItemSelected(item);
@@ -161,11 +161,11 @@ public class MobileViewListActivity extends ListActivity {
     	
     	switch(item.getItemId()) {
     	case MENU_ADD:
-    		addToMobileViewList();
+    		addToWhiteList();
     		return true;
     		
     	case MENU_CLEAR:    		
-    		clearMobileViewList();
+    		clearWhiteList();
             return true;
         default: return super.onMenuItemSelected(featureId, item);
     	}
@@ -175,20 +175,20 @@ public class MobileViewListActivity extends ListActivity {
 	 * Add a value to the white list.
 	 * @param value The value to add.
 	 */
-	private void doAddToMobileViewList(String value) {
-		mDbAdapter.insertInMobileViewUrlList(value);
-		Controller.getInstance().resetMobileViewUrlList();
+	private void doAddToWhiteList(String value) {
+		mDbAdapter.insertInWhiteList(value);
+		Controller.getInstance().resetAdBlockWhiteList();
 		fillData();
 	}
 	
 	/**
 	 * Build and show a dialog for user input. Add user input to the white list.
 	 */
-	private void addToMobileViewList() {
+	private void addToWhiteList() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);    
     	builder.setCancelable(true);
     	builder.setIcon(android.R.drawable.ic_input_add);
-    	builder.setTitle(getResources().getString(R.string.MobileViewListActivity_AddMessage));
+    	builder.setTitle(getResources().getString(R.string.AdBlockerWhiteListActivity_AddMessage));
     	
     	builder.setInverseBackgroundForced(true);
     	
@@ -202,7 +202,7 @@ public class MobileViewListActivity extends ListActivity {
     		@Override
     		public void onClick(DialogInterface dialog, int which) {
     			dialog.dismiss();
-    			doAddToMobileViewList(input.getText().toString());
+    			doAddToWhiteList(input.getText().toString());
     		}
     	});
     	builder.setNegativeButton(getResources().getString(R.string.Commons_Cancel), new DialogInterface.OnClickListener() {
@@ -219,25 +219,25 @@ public class MobileViewListActivity extends ListActivity {
 	/**
 	 * Clear the white list.
 	 */
-	private void doClearMobileViewList() {
-		mDbAdapter.clearMobileViewUrlList();
-		Controller.getInstance().resetMobileViewUrlList();
+	private void doClearWhiteList() {
+		mDbAdapter.clearWhiteList();
+		Controller.getInstance().resetAdBlockWhiteList();
 		fillData();
 	}
 	
 	/**
 	 * Display a confirmation dialog and clear the white list.
 	 */
-	private void clearMobileViewList() {
+	private void clearWhiteList() {
 		ApplicationUtils.showYesNoDialog(this,
 				android.R.drawable.ic_dialog_alert,
-				R.string.MobileViewListActivity_ClearMessage,
+				R.string.AdBlockerWhiteListActivity_ClearMessage,
 				R.string.Commons_NoUndoMessage,
 				new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						dialog.dismiss();
-						doClearMobileViewList();
+						doClearWhiteList();
 					}			
 		});      
     }

@@ -8,7 +8,7 @@
    This program is free software; you can redistribute it and/or
    modify it under the terms of the GNU General Public License
    version 3 as published by the Free Software Foundation.
- 
+  
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -17,99 +17,99 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">        
     <string name="ApplicationName">Zirco Browser</string>
-    <string name="ApplicationNameUrl">Zirco - %s</string>
-    <string name="ApplicationDescription">Zirco is an open-source browser for Android.</string>
+    <string name="ApplicationNameUrl">Zirco Browser - %s</string>
+    <string name="ApplicationDescription">使用Zirco Browser让你更好的使用互联网</string>
     
-    <string name="AboutActivity.Title">About</string>
-	<string name="AboutActivity.VersionText">Version:</string>
+    <string name="AboutActivity.Title">关于</string>
+    <string name="AboutActivity.VersionText">Version:</string>
+	<string name="AboutActivity.LicenseText">版权:</string>
 	<string name="AboutActivity.UrlTextValue">http://code.google.com/p/zirco-browser/</string>
-	<string name="AboutActivity.LicenseText">License:</string>
 	<string name="AboutActivity.LicenseTextValue">GPL v3</string>
 
-    <string name="Main.MenuAddBookmark">Add bookmark</string>
-    <string name="Main.MenuShowBookmarks">Bookmarks</string>
-    <string name="Main.MenuShowHistory">History</string>
-    <string name="Main.MenuShowDownloads">Downloads</string>
-    <string name="Main.MenuPreferences">Preferences</string>
-    <string name="Main.MenuOpen">Open</string>
-    <string name="Main.MenuOpenNewTab">Open in new tab</string>
-    <string name="Main.MenuDownload">Download</string>   
-    <string name="Main.DownloadStartedMsg">Download start.</string>
-    <string name="Main.DownloadFinishedMsg">Download complete.</string>
-    <string name="Main.DownloadErrorMsg">Download error: %s</string>
-    <string name="Main.ToastTabSwitchMessage">Tab %s</string>
-    <string name="Main.ToastTabSwitchFullMessage">Tab %1$s: %2$s</string>
-    <string name="Main.VndErrorTitle">Unable to open url</string>
-    <string name="Main.VndErrorMessage">You may not have an application able to open this url: %s.</string>
+    <string name="Main.MenuAddBookmark">添加书签</string>
+    <string name="Main.MenuShowBookmarks">书签</string>
+    <string name="Main.MenuShowHistory">历史</string>
+    <string name="Main.MenuShowDownloads">下载</string>
+    <string name="Main.MenuPreferences">配置</string>
+    <string name="Main.MenuOpen">打开</string>
+    <string name="Main.MenuOpenNewTab">打开新页</string>
+    <string name="Main.MenuDownload">下载</string>   
+    <string name="Main.DownloadStartedMsg">下载开始</string>
+    <string name="Main.DownloadFinishedMsg">下载结束</string>
+    <string name="Main.DownloadErrorMsg">下载错误: %s</string>
+    <string name="Main.ToastTabSwitchMessage">页 %s</string>
+    <string name="Main.ToastTabSwitchFullMessage">页 %1$s: %2$s</string>
+    <string name="Main.VndErrorTitle">不能打开网址</string>
+    <string name="Main.VndErrorMessage">您没有应用程序支持这个网址: %s.</string>
     
-    <string name="BookmarksListActivity.Title">Zirco Browser - Bookmarks</string>
-    <string name="BookmarksListActivity.MenuSortMode">Sort by</string>
-    <string name="BookmarksListActivity.MenuAddBookmark">Add bookmark</string>
-    <string name="BookmarksListActivity.Empty">No bookmarks</string>
-    <string name="BookmarksListActivity.MenuOpenInTab">Open in new tab</string>
-    <string name="BookmarksListActivity.MenuEditBookmark">Edit bookmark</string>
-    <string name="BookmarksListActivity.MenuDeleteBookmark">Delete bookmark</string>
-    <string name="BookmarksListActivity.AlphaSortMode">Alphabetical</string>
-    <string name="BookmarksListActivity.RecentSortMode">Most recent</string>
+    <string name="BookmarksListActivity.Title">Zirco浏览器 - 书签</string>
+    <string name="BookmarksListActivity.MenuSortMode">排序方式</string>
+    <string name="BookmarksListActivity.MenuAddBookmark">添加书签</string>
+    <string name="BookmarksListActivity.Empty">没有书签</string>
+    <string name="BookmarksListActivity.MenuOpenInTab">打开新页</string>
+    <string name="BookmarksListActivity.MenuEditBookmark">编辑书签</string>
+    <string name="BookmarksListActivity.MenuDeleteBookmark">删除书签</string>
+    <string name="BookmarksListActivity.AlphaSortMode">顺序</string>
+    <string name="BookmarksListActivity.RecentSortMode">最新</string>
     
-    <string name="EditBookmarkActivity.Title">Edit bookmark</string>
-    <string name="EditBookmarkActivity.TitleAdd">Add bookmark</string>
-    <string name="EditBookmarkActivity.TitleLabel">Name:</string>
-    <string name="EditBookmarkActivity.UrlLabel">Location:</string>
+    <string name="EditBookmarkActivity.Title">编辑书签</string>
+    <string name="EditBookmarkActivity.TitleAdd">添加书签</string>
+    <string name="EditBookmarkActivity.TitleLabel">显示名称:</string>
+    <string name="EditBookmarkActivity.UrlLabel">地址:</string>
     
-    <string name="HistoryListActivity.Title">Zirco Browser - History</string>
-    <string name="HistoryListActivity.MenuOpenInTab">Open in new tab</string>
-    <string name="HistoryListActivity.MenuDelete">Delete</string>
+    <string name="HistoryListActivity.Title">历史</string>
+    <string name="HistoryListActivity.MenuOpenInTab">打开新页</string>
+    <string name="HistoryListActivity.MenuDelete">删除</string>
     
-    <string name="DownloadListActivity.Title">Zirco Browser - Downloads</string>
-    <string name="DownloadListActivity.Empty">No downloads</string>
-    <string name="DownloadListActivity.Aborted">%s (Canceled)</string>
-    <string name="DownloadListActivity.Finished">%s (Finished)</string>
+    <string name="DownloadListActivity.Title">Zirco Browser-下载</string>
+    <string name="DownloadListActivity.Empty">没有下载</string>
+    <string name="DownloadListActivity.Aborted">%s (取消)</string>
+    <string name="DownloadListActivity.Finished">%s (完成)</string>
     
-    <string name="AdBlockerWhiteListActivity.Title">Zirco Browser - Ad blocker white list</string>
-    <string name="AdBlockerWhiteListActivity.Empty">White list is empty.</string>
-    <string name="AdBlockerWhiteListActivity.AddMessage">Add to white list</string>
-    <string name="AdBlockerWhiteListActivity.ClearMessage">Clear white list</string>    
+    <string name="AdBlockerWhiteListActivity.Title">Zirco Browser - 广告阻止的百名单</string>
+    <string name="AdBlockerWhiteListActivity.Empty">白名单是空的.</string>
+    <string name="AdBlockerWhiteListActivity.AddMessage">添加至白名单</string>
+    <string name="AdBlockerWhiteListActivity.ClearMessage">清空白名单</string>    
     
-    <string name="PreferencesActivity.GeneralSettingsCategoryTitle">General settings</string>
-    <string name="PreferencesActivity.HomePagePreferenceTitle">Home page</string>
-    <string name="PreferencesActivity.HomePagePreferenceSummary">Define your default home page.</string>
-    <string name="PreferencesActivity.FullScreenPreferenceTitle">Full screen</string>
-    <string name="PreferencesActivity.FullScreenPreferenceSummary">Display browser in full screen mode (need application restart).</string>
-    <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceTitle">Show alert on tab switch</string>
-    <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceSummary">If checked, a small alert is briefly show when switching tabs.</string>
+    <string name="PreferencesActivity.GeneralSettingsCategoryTitle">通用设置</string>
+    <string name="PreferencesActivity.HomePagePreferenceTitle">主页设定</string>
+    <string name="PreferencesActivity.HomePagePreferenceSummary">定义你的默认主页</string>
+    <string name="PreferencesActivity.FullScreenPreferenceTitle">全屏幕</string>
+    <string name="PreferencesActivity.FullScreenPreferenceSummary">在全屏幕模式下显示 (需要重新启动程序).</string>
+    <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceTitle">显示警报在页切换时</string>
+    <string name="PreferencesActivity.ShowToastOnTabSwitchPreferenceSummary">如果选中, 在页切换时会有显示小警报.</string>
     
-    <string name="PreferencesActivity.BrowserSettingsCategoryTitle">Browser settings</string>
-    <string name="PreferencesActivity.HistorySizePreferenceTitle">History size</string>
-    <string name="PreferencesActivity.HistorySizePreferenceSummary">History size in days.</string>
-    <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">Enable JavaScript</string>
-    <string name="PreferencesActivity.EnableJavascriptPreferenceSummary">Enable or disable JavaScript.</string>
-    <string name="PreferencesActivity.LoadImagesPreferenceTitle">Load images</string>
-    <string name="PreferencesActivity.LoadImagesPreferenceSummary">Enable or disable image loading.</string>
+    <string name="PreferencesActivity.BrowserSettingsCategoryTitle">浏览器设定</string>
+    <string name="PreferencesActivity.HistorySizePreferenceTitle">历史记录大小</string>
+    <string name="PreferencesActivity.HistorySizePreferenceSummary">每天历史记录大小</string>
+    <string name="PreferencesActivity.EnableJavascriptPreferenceTitle">启用JavaScript</string>
+    <string name="PreferencesActivity.EnableJavascriptPreferenceSummary">启用或禁用JavaScript.</string>
+    <string name="PreferencesActivity.LoadImagesPreferenceTitle">是否加载图像</string>
+    <string name="PreferencesActivity.LoadImagesPreferenceSummary">启用或禁用图像加载.</string>
     
-    <string name="PreferencesActivity.PrivacyPreferenceTitle">Privacy settings</string>
-    <string name="PreferencesActivity.PrivacyPreferenceSummary">Manage privacy settings.</string>
+    <string name="PreferencesActivity.PrivacyPreferenceTitle">隐私设定</string>
+    <string name="PreferencesActivity.PrivacyPreferenceSummary">管理您的隐私设定.</string>
     
-    <string name="PreferencesActivity.EnableFormDataPreferenceTitle">Save forms data</string>
-    <string name="PreferencesActivity.EnableFormDataPreferenceSummary">Enable or disable form data saving.</string>
-    <string name="PreferencesActivity.EnablePasswordsPreferenceTitle">Save passwords</string>
-    <string name="PreferencesActivity.EnablePasswordsPreferenceSummary">Enable or disable password saving.</string>
-    <string name="PreferencesActivity.EnableCookiesPreferenceTitle">Allow cookies</string>
-    <string name="PreferencesActivity.EnableCookiesPreferenceSummary">Enable or disable cookies.</string>
+    <string name="PreferencesActivity.EnableFormDataPreferenceTitle">保存表单数据</string>
+    <string name="PreferencesActivity.EnableFormDataPreferenceSummary">启用或禁用保存表单数据.</string>
+    <string name="PreferencesActivity.EnablePasswordsPreferenceTitle">保存密码</string>
+    <string name="PreferencesActivity.EnablePasswordsPreferenceSummary">启用或禁用密码保存.</string>
+    <string name="PreferencesActivity.EnableCookiesPreferenceTitle">允许cookie</string>
+    <string name="PreferencesActivity.EnableCookiesPreferenceSummary">启用或禁用Cookies.</string>
     
-    <string name="PreferencesActivity.PrivacyClearHistoryTitle">Clear history</string>
-    <string name="PreferencesActivity.PrivacyClearFormDataTitle">Clear form data</string>
-    <string name="PreferencesActivity.PrivacyClearCacheTitle">Clear cache</string>
-    <string name="PreferencesActivity.PrivacyClearCookiesTitle">Clear cookies</string>
+    <string name="PreferencesActivity.PrivacyClearHistoryTitle">清空历史</string>
+    <string name="PreferencesActivity.PrivacyClearFormDataTitle">清空表单数据</string>
+    <string name="PreferencesActivity.PrivacyClearCacheTitle">清空缓存</string>
+    <string name="PreferencesActivity.PrivacyClearCookiesTitle">清空cookies</string>
     
-    <string name="PreferencesActivity.BarDurationPreferenceTitle">Bars display duration</string>
-    <string name="PreferencesActivity.BarDurationPreferenceSummary">Display duration of tools bars.</string>
+    <string name="PreferencesActivity.BarDurationPreferenceTitle">工具条显示时间</string>
+    <string name="PreferencesActivity.BarDurationPreferenceSummary">显示工具条的时间.</string>
     
-    <string name="PreferencesActivity.BarDuration1sec">1 second</string>
-    <string name="PreferencesActivity.BarDuration2sec">2 seconds</string>
-    <string name="PreferencesActivity.BarDuration3sec">3 seconds</string>
-    <string name="PreferencesActivity.BarDuration4sec">4 seconds</string>
-    <string name="PreferencesActivity.BarDuration5sec">5 seconds</string>
+    <string name="PreferencesActivity.BarDuration1sec">1 秒</string>
+    <string name="PreferencesActivity.BarDuration2sec">2 秒</string>
+    <string name="PreferencesActivity.BarDuration3sec">3 秒</string>
+    <string name="PreferencesActivity.BarDuration4sec">4 秒</string>
+    <string name="PreferencesActivity.BarDuration5sec">5 秒</string>
     <string-array name="BarDurationEntries">
 		<item>@string/PreferencesActivity.BarDuration1sec</item>
 		<item>@string/PreferencesActivity.BarDuration2sec</item>
@@ -125,12 +125,12 @@
 		<item>5000</item>
 	</string-array>
 	
-	<string name="PreferencesActivity.BubblePositionPreferenceTitle">Bubble position</string>
-    <string name="PreferencesActivity.BubblePositionPreferenceSummary">Position of the "bubble".</string>
+	<string name="PreferencesActivity.BubblePositionPreferenceTitle">工具条图标</string>
+    <string name="PreferencesActivity.BubblePositionPreferenceSummary">工具条图标位置</string>
     
-    <string name="PreferencesActivity.BubbleRight">Right</string>
-    <string name="PreferencesActivity.BubbleLeft">Left</string>
-    <string name="PreferencesActivity.BubbleBoth">Both</string>
+    <string name="PreferencesActivity.BubbleRight">右</string>
+    <string name="PreferencesActivity.BubbleLeft">左</string>
+    <string name="PreferencesActivity.BubbleBoth">两边都有</string>
     <string-array name="BubblePositionEntries">
 		<item>@string/PreferencesActivity.BubbleRight</item>
 		<item>@string/PreferencesActivity.BubbleLeft</item>
@@ -142,47 +142,47 @@
 		<item>both</item>
 	</string-array>
 	
-	<string name="PreferencesActivity.AdBlockerSettingsCategoryTitle">Ad-blocker settings</string>
-	<string name="PreferencesActivity.EnableAdBlockerPreferenceTitle">Enable Ad-blocker</string>
-    <string name="PreferencesActivity.EnableAdBlockerPreferenceSummary">Ad-blocker will not work if JavaScript is not enabled.</string>
-    <string name="PreferencesActivity.AdBlockerWhiteListPreferenceTitle">White list</string>
-    <string name="PreferencesActivity.AdBlockerWhiteListPreferenceSummary">Manage Ad-blocker white list.</string>
+	<string name="PreferencesActivity.AdBlockerSettingsCategoryTitle">广告阻止设定</string>
+	<string name="PreferencesActivity.EnableAdBlockerPreferenceTitle">启用广告阻止</string>
+    <string name="PreferencesActivity.EnableAdBlockerPreferenceSummary">必须启用JavaScript为使用广告阻止.</string>
+    <string name="PreferencesActivity.AdBlockerWhiteListPreferenceTitle">白名单</string>
+    <string name="PreferencesActivity.AdBlockerWhiteListPreferenceSummary">管理广告阻止白名单.</string>
     
-    <string name="Commons.Ok">OK</string>
-    <string name="Commons.Cancel">Cancel</string>
-    <string name="Commons.PleaseWait">Please wait</string>
-    <string name="Commons.Yes">Yes</string>
-    <string name="Commons.No">No</string>
-    <string name="Commons.NoUndoMessage">This operation cannot be undone. Do you wish to proceed?</string>
-    <string name="Commons.JavaScriptDialog">JavaScript dialog</string>
-    <string name="Commons.ClearHistory">Clear history</string>
-    <string name="Commons.ClearingHistory">Clearing history&#8230;</string>
-    <string name="Commons.ClearFormData">Clear form data</string>
-    <string name="Commons.ClearingFormData">Clearing form data&#8230;</string>
-    <string name="Commons.ClearCache">Clear cache</string>
-    <string name="Commons.ClearingCache">Clearing cache&#8230;</string>
-    <string name="Commons.ClearCookies">Clear cookies</string>
-    <string name="Commons.ClearingCookies">Clearing cookies&#8230;</string>
-    <string name="Commons.SDCardErrorTitle">SD Card unavailable</string>
-    <string name="Commons.SDCardErrorNoSDMsg">No SD Card found.</string>
-    <string name="Commons.SDCardErrorSDUnavailable">SD Card is not available.</string>
-    <string name="Commons.Close">Close</string>
+    <string name="Commons.Ok">确定</string>
+    <string name="Commons.Cancel">取消</string>
+    <string name="Commons.PleaseWait">请等待</string>
+    <string name="Commons.Yes">是</string>
+    <string name="Commons.No">否</string>
+    <string name="Commons.NoUndoMessage">此操作无法撤销。你希望继续吗？</string>    
+    <string name="Commons.JavaScriptDialog">JavaScript对话框</string>
+    <string name="Commons.ClearHistory">清空历史记录</string>
+    <string name="Commons.ClearingHistory">正在清空历史记录&#8230;</string>
+    <string name="Commons.ClearFormData">清空表单数据</string>
+    <string name="Commons.ClearingFormData">正在清空表单数据&#8230;</string>
+    <string name="Commons.ClearCache">清空缓存</string>
+    <string name="Commons.ClearingCache">正在清空缓存&#8230;</string>
+    <string name="Commons.ClearCookies">清空Cookies</string>
+    <string name="Commons.ClearingCookies">正在清空缓存&#8230;</string>
+    <string name="Commons.SDCardErrorTitle">SD卡不能使用</string>
+    <string name="Commons.SDCardErrorNoSDMsg">找不到SD卡</string>
+    <string name="Commons.SDCardErrorSDUnavailable">SD卡不能使用</string>
+    <string name="Commons.Close">关闭</string>
     
     <string name="DATE_FORMAT_ISO8601">yyyy-MM-dd\'T\'HH:mm:ss.SSS</string>
     
     <!-- 0.3.1 -->
-    <string name="PreferencesActivity.AboutCategoryTitle">About</string>
-    <string name="PreferencesActivity.AboutPreferenceTitle">About</string>
-    <string name="PreferencesActivity.AboutPreferenceSummary">Information about this application.</string>
+    <string name="PreferencesActivity.AboutCategoryTitle">关于</string>
+    <string name="PreferencesActivity.AboutPreferenceTitle">关于</string>
+    <string name="PreferencesActivity.AboutPreferenceSummary">此应用程序的信息.</string>
     
     <!-- 0.3.2 -->
-    <string name="BookmarksListActivity.MostUsedSortMode">Most used</string>
-    <string name="PreferencesActivity.DefaultZoomPreferenceTitle">Default zoom level</string>
-    <string name="PreferencesActivity.DefaultZoomPreferenceSummary">Set the default zoom level.</string>
+    <string name="BookmarksListActivity.MostUsedSortMode">最使用</string>
+    <string name="PreferencesActivity.DefaultZoomPreferenceTitle">默认缩放级别</string>
+    <string name="PreferencesActivity.DefaultZoomPreferenceSummary">设定默认缩放级别.</string>
     
-    <string name="PreferencesActivity.DefaultZoomClose">Close</string>
-    <string name="PreferencesActivity.DefaultZoomMedium">Medium</string>
-    <string name="PreferencesActivity.DefaultZoomFar">Far</string>
+    <string name="PreferencesActivity.DefaultZoomClose">近</string>
+    <string name="PreferencesActivity.DefaultZoomMedium">远</string>
+    <string name="PreferencesActivity.DefaultZoomFar">非常远</string>
     
     <string-array name="DefaultZoomEntries">
 		<item>@string/PreferencesActivity.DefaultZoomClose</item>
@@ -195,20 +195,20 @@
 		<item>FAR</item>
 	</string-array>
 
-	<string name="StartPage.Welcome">Welcome!</string>
-	<string name="StartPage.Bookmarks">Most used bookmarks</string>
-	<string name="StartPage.History">Recent history</string>
+	<string name="StartPage.Welcome">欢迎!</string>
+	<string name="StartPage.Bookmarks">使用最多的书签</string>
+	<string name="StartPage.History">最近历史记录</string>
 	
-	<string name="ChangelogActivity.Title">Changelog</string>	
-    <string name="PreferencesActivity.ChangelogPreferenceTitle">Changelog</string>
-    <string name="PreferencesActivity.ChangelogPreferenceSummary">Changelog of this application.</string>
+	<string name="ChangelogActivity.Title">更改日志</string>	
+    <string name="PreferencesActivity.ChangelogPreferenceTitle">更改日志</string>
+    <string name="PreferencesActivity.ChangelogPreferenceSummary">此应用程序的更改日志.</string>
     
-    <string name="HomepagePreferenceActivity.Title">Home page</string>
-    <string name="HomepagePreferenceActivity.Prompt">Home page</string>
+    <string name="HomepagePreferenceActivity.Title">主页</string>
+    <string name="HomepagePreferenceActivity.Prompt">主页</string>
     
-    <string name="PreferencesActivity.HomepageStart">Start page</string>
-    <string name="PreferencesActivity.HomepageBlank">Blank page</string>
-    <string name="PreferencesActivity.HomepageCustom">Custom page</string>
+    <string name="PreferencesActivity.HomepageStart">开始页</string>
+    <string name="PreferencesActivity.HomepageBlank">空白页</string>
+    <string name="PreferencesActivity.HomepageCustom">自定义页</string>
     
     <string-array name="HomepageValues">
         <item>@string/PreferencesActivity.HomepageStart</item>
@@ -218,17 +218,17 @@
     
     <!-- 0.3.3 -->
     <string name="Constants.SearchUrlGoogle">http://www.google.com/m?hl=en&amp;gl=us&amp;client=ms-null&amp;source=android-browser-key&amp;q=%s</string>
-    <string name="Constants.SearchUrlWikipedia">http://en.wikipedia.org/w/index.php?search=%s&amp;go=Go</string>
+    <string name="Constants.SearchUrlWikipedia">http://www.baidu.com/s?wd=%s</string>
+
+    <string name="PreferencesActivity.SearchUrlPreferenceTitle">搜索 URL</string>
+    <string name="PreferencesActivity.SearchUrlPreferenceSummary">自定义搜索URL</string>
     
-    <string name="PreferencesActivity.SearchUrlPreferenceTitle">Search url</string>
-    <string name="PreferencesActivity.SearchUrlPreferenceSummary">Define the search url.</string>
+    <string name="SearchUrlPreferenceActivity.Title">搜索</string>
+    <string name="SearchUrlPreferenceActivity.Prompt">搜索</string>
     
-    <string name="SearchUrlPreferenceActivity.Title">Search url</string>
-    <string name="SearchUrlPreferenceActivity.Prompt">Search url</string>
-    
-    <string name="PreferencesActivity.SearchUrlGoogle">Google</string>
-    <string name="PreferencesActivity.SearchUrlWikipedia">Wikipedia</string>
-    <string name="PreferencesActivity.SearchUrlCustom">Custom</string>
+    <string name="PreferencesActivity.SearchUrlGoogle">谷歌</string>
+    <string name="PreferencesActivity.SearchUrlWikipedia">百度</string>
+    <string name="PreferencesActivity.SearchUrlCustom">自定义</string>
     
     <string-array name="SearchUrlValues">
         <item>@string/PreferencesActivity.SearchUrlGoogle</item>
@@ -236,31 +236,31 @@
         <item>@string/PreferencesActivity.SearchUrlCustom</item>
     </string-array>
     
-    <string name="StartPage.Search">Search</string>
-    <string name="StartPage.SearchButton">Go</string>
+    <string name="StartPage.Search">搜索</string>
+    <string name="StartPage.SearchButton">搜</string>
     
-    <string name="PreferencesActivity.StartPageCustomizationPreferenceTitle">Start page customization</string>
-    <string name="PreferencesActivity.StartPageCustomizationPreferenceSummary">Customize the start page.</string>
-    <string name="PreferencesActivity.StartPageEnableSearchPreferenceTitle">Show search box</string>
-    <string name="PreferencesActivity.StartPageEnableSearchPreferenceSummary">If checked, a search box will be shown.</string>
-    <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceTitle">Show most used bookmarks</string>
-    <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceSummary">If checked, the most used bookmarks will be shown.</string>
-    <string name="PreferencesActivity.StartPageEnableHistoryPreferenceTitle">Show recent history</string>
-    <string name="PreferencesActivity.StartPageEnableHistoryPreferenceSummary">If checked, the recent history will be shown.</string>
-    <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceTitle">Number of most used bookmarks</string>
-    <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceSummary">The number of most used bookmarks to show.</string>
-    <string name="PreferencesActivity.StartPageHistoryLimitPreferenceTitle">Number of recent history items</string>
-    <string name="PreferencesActivity.StartPageHistoryLimitPreferenceSummary">The number of recent history item to show.</string>
+    <string name="PreferencesActivity.StartPageCustomizationPreferenceTitle">开始页自定义</string>
+    <string name="PreferencesActivity.StartPageCustomizationPreferenceSummary">自定义开始页.</string>
+    <string name="PreferencesActivity.StartPageEnableSearchPreferenceTitle">是否显示搜索栏</string>
+    <string name="PreferencesActivity.StartPageEnableSearchPreferenceSummary">如果选中，会有显示搜索栏.</string>
+    <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceTitle">显示最常用书签</string>
+    <string name="PreferencesActivity.StartPageEnableBookmarksPreferenceSummary">如果选中，会有显示最使用书签.</string>
+    <string name="PreferencesActivity.StartPageEnableHistoryPreferenceTitle">显示最近历史</string>
+    <string name="PreferencesActivity.StartPageEnableHistoryPreferenceSummary">如果选中，会有显示最近历史.</string>
+    <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceTitle">最使用书签的个数</string>
+    <string name="PreferencesActivity.StartPageBookmarksLimitPreferenceSummary">显示最使用书签的个数.</string>
+    <string name="PreferencesActivity.StartPageHistoryLimitPreferenceTitle">最近历史记录项的个数</string>
+    <string name="PreferencesActivity.StartPageHistoryLimitPreferenceSummary">显示最近历史记录项的个数.</string>
     
-    <string name="PreferencesActivity.UserAgentPreferenceTitle">User agent</string>
-    <string name="PreferencesActivity.UserAgentPreferenceSummary">Define the user agent to use.</string>
+    <string name="PreferencesActivity.UserAgentPreferenceTitle">用户代理</string>
+    <string name="PreferencesActivity.UserAgentPreferenceSummary">定义用户代理至使用.</string>
     
-    <string name="UserAgentPreferenceActivity.Title">User agent</string>
-    <string name="UserAgentPreferenceActivity.Prompt">User agent</string>
+    <string name="UserAgentPreferenceActivity.Title">用户代理</string>
+    <string name="UserAgentPreferenceActivity.Prompt">用户代理</string>
     
-    <string name="PreferencesActivity.UserAgentDefault">Default</string>
-    <string name="PreferencesActivity.UserAgentDesktop">Desktop</string>
-    <string name="PreferencesActivity.UserAgentCustom">Custom</string>
+    <string name="PreferencesActivity.UserAgentDefault">Android默认</string>
+    <string name="PreferencesActivity.UserAgentDesktop">桌面级</string>
+    <string name="PreferencesActivity.UserAgentCustom">自定义</string>
     
     <string-array name="UserAgentValues">
         <item>@string/PreferencesActivity.UserAgentDefault</item>
@@ -268,40 +268,40 @@
         <item>@string/PreferencesActivity.UserAgentCustom</item>
     </string-array>
     
-    <!-- 0.3.4 -->
-    <string name="Main.MenuCopyLinkUrl">Copy link url</string>
-    <string name="Main.MenuViewImage">View image</string>
-    <string name="Main.MenuCopyImageUrl">"Copy image url</string>
-    <string name="Main.MenuDownloadImage">Download image</string>
-    <string name="Main.MenuSendEmail">Send email</string>
-    <string name="Main.MenuCopyEmailUrl">Copy email url</string>
+	<!-- 0.3.4 -->
+    <string name="Main.MenuCopyLinkUrl">复制链接地址</string>
+    <string name="Main.MenuViewImage">显示图片</string>
+    <string name="Main.MenuCopyImageUrl">复制图片地址</string>
+    <string name="Main.MenuDownloadImage">下载图片</string>
+    <string name="Main.MenuSendEmail">发送电子邮件</string>
+    <string name="Main.MenuCopyEmailUrl">复制邮件地址</string>        
     
-    <string name="Commons.UrlCopyToastMessage">Url copied to clipboard.</string>
+    <string name="Commons.UrlCopyToastMessage">地址已经复制到粘贴板</string>
     
-    <string name="DownloadNotification.DownloadStart">Download start.</string>
-    <string name="DownloadNotification.DownloadInProgress">Download in progress.</string>
-    <string name="DownloadNotification.DownloadComplete">Download complete.</string>
-    <string name="DownloadNotification.DownloadCanceled">Download canceled.</string>
+    <string name="DownloadNotification.DownloadStart">下载开始.</string>
+    <string name="DownloadNotification.DownloadInProgress">正在下载中.</string>
+    <string name="DownloadNotification.DownloadComplete">下载完成.</string>
+    <string name="DownloadNotification.DownloadCanceled">下载已经取消.</string>
     
-    <string name="BookmarksHistoryActivity.MenuCopyLinkUrl">Copy url</string>
+    <string name="BookmarksHistoryActivity.MenuCopyLinkUrl">复制URL</string>
     
-    <string name="PreferencesActivity.ClearCacheOnExitPreferenceTitle">Clear cache on exit</string>
-    <string name="PreferencesActivity.ClearCacheOnExitPreferenceSummary">If checked, the browser cache will be cleared when the application exit.</string>
+    <string name="PreferencesActivity.ClearCacheOnExitPreferenceTitle">清空缓存</string>
+    <string name="PreferencesActivity.ClearCacheOnExitPreferenceSummary">如果选中, 当应用程序退出浏览器的缓存会清空.</string>
     
-    <string name="PreferencesActivity.UIPreferenceTitle">User interface settings</string>
-    <string name="PreferencesActivity.UIPreferenceSummary">Customize the user interface.</string>
+    <string name="PreferencesActivity.UIPreferenceTitle">用户界面设定</string>
+    <string name="PreferencesActivity.UIPreferenceSummary">自定义化用户界面的设定.</string>
     
-    <string name="Main.MenuExit">Exit</string>
+    <string name="Main.MenuExit">退出</string>
     
-    <string name="PreferencesActivity.RestartDialogTitle">Restart required</string>
-    <string name="PreferencesActivity.RestartDialogMessage">This change will not take effect until the application restart. Do you want to do it now?</string>
+    <string name="PreferencesActivity.RestartDialogTitle">需要重启</string>
+    <string name="PreferencesActivity.RestartDialogMessage">对效果改变需要重新启动程序。是否马上重启?</string>
     
     <!-- 0.3.5 -->
-    <string name="PreferencesActivity.EnablePluginsTitle">Enable plug-ins</string>
+    <string name="PreferencesActivity.EnablePluginsTitle">启用插件</string>
     
-    <string name="PreferencesActivity.PluginsAlwaysOff">Always off</string>
-    <string name="PreferencesActivity.PluginsOnDemand">On demand</string>
-    <string name="PreferencesActivity.PluginsAlwaysOn">Always on</string>
+    <string name="PreferencesActivity.PluginsAlwaysOff">关闭</string>
+    <string name="PreferencesActivity.PluginsOnDemand">一经请求</string>
+    <string name="PreferencesActivity.PluginsAlwaysOn">打开</string>
     
     <string-array name="PluginsEntries">
 		<item>@string/PreferencesActivity.PluginsAlwaysOff</item>
@@ -314,37 +314,37 @@
 		<item>ON</item>
 	</string-array>
 	
-	<string name="Commons.Continue">Continue</string>
+	<string name="Commons.Continue">继续</string>
 	
-	<string name="Commons.SslWarning">Security warning</string>
-	<string name="Commons.SslWarningsHeader">There are problems with the security certificate for this site.</string>
-	<string name="Commons.SslUntrusted">This certificate is not from a trusted authority.</string>
-	<string name="Commons.SslIDMismatch">The name of the site does not match the name on the certificate.</string>
-	<string name="Commons.SslExpired">This certificate has expired.</string>
-	<string name="Commons.SslNotYetValid">This certificate is not valid yet.</string>
+	<string name="Commons.SslWarning">安全警告</string>
+	<string name="Commons.SslWarningsHeader">网站的安全证书存在问题</string>
+	<string name="Commons.SslUntrusted">安全证书没有可信任发行者.</string>
+	<string name="Commons.SslIDMismatch">站点名和证书不匹配</string>
+	<string name="Commons.SslExpired">证书已经过期</string>
+	<string name="Commons.SslNotYetValid">证书没有验证</string>
 	
-	<string name="MobileViewListActivity.Title">Zirco Browser - Websites list for mobile view</string>
-	<string name="MobileViewListActivity.ListEmpty">List is empty.</string>	
-    <string name="MobileViewListActivity.AddMessage">Add a website</string>
-    <string name="MobileViewListActivity.ClearMessage">Clear all sites</string>
+	<string name="MobileViewListActivity.Title">Zirco Browser-通过网关访问的网站列表</string>
+	<string name="MobileViewListActivity.ListEmpty">列表为空</string>	
+    <string name="MobileViewListActivity.AddMessage">添加一个网站</string>
+    <string name="MobileViewListActivity.ClearMessage">清空所有站点</string>
 	
-	<string name="PreferencesActivity.MobileViewCategoryTitle">Mobile view settings</string>
-	<string name="PreferencesActivity.MobileViewListPreferenceTitle">Manage websites</string>
-	<string name="PreferencesActivity.MobileViewListPreferenceSummary">Websites in this list will be loaded using Google mobile view (GWT).</string>
+	<string name="PreferencesActivity.MobileViewCategoryTitle">移动视图设定</string>
+	<string name="PreferencesActivity.MobileViewListPreferenceTitle">管理网站</string>
+	<string name="PreferencesActivity.MobileViewListPreferenceSummary">在此列表中的网站将会加载使用谷歌移动视图 (GWT).</string>
 	
-	<string name="Commons.Add">Add</string>
-    <string name="Commons.Clear">Clear</string>
-    <string name="Commons.Delete">Delete</string>
+	<string name="Commons.Add">增加</string>
+    <string name="Commons.Clear">清空</string>
+    <string name="Commons.Delete">删除</string>
     
     <!-- 0.3.6 -->
-    <string name="PreferencesActivity.VolumeKeysBehaviourPreferenceTitle">Volume keys behaviour</string>
-    <string name="PreferencesActivity.VolumeKeysBehaviourPreferenceSummary">Choose the volume keys actions.</string>
+    <string name="PreferencesActivity.VolumeKeysBehaviourPreferenceTitle">音量键行为</string>
+    <string name="PreferencesActivity.VolumeKeysBehaviourPreferenceSummary">选择音量键的功能.</string>
     
-    <string name="PreferencesActivity.VolumeKeysActionDefault">Default behaviour</string>
-    <string name="PreferencesActivity.VolumeKeysActionZoom">Zoom</string>
-    <string name="PreferencesActivity.VolumeKeysActionScroll">Scroll up/down</string>
-    <string name="PreferencesActivity.VolumeKeysActionSwitchTabs">Switch tabs</string>
-    <string name="PreferencesActivity.VolumeKeysActionHistory">Back/Forward</string>
+    <string name="PreferencesActivity.VolumeKeysActionDefault">默认行为</string>
+    <string name="PreferencesActivity.VolumeKeysActionZoom">放大</string>
+    <string name="PreferencesActivity.VolumeKeysActionScroll">向上滚动／向下滚动</string>
+    <string name="PreferencesActivity.VolumeKeysActionSwitchTabs">切换选项卡</string>
+    <string name="PreferencesActivity.VolumeKeysActionHistory">前进/后退</string>
     
     <string-array name="VolumeKeysActionEntries">
 		<item>@string/PreferencesActivity.VolumeKeysActionDefault</item>
@@ -360,31 +360,31 @@
 		<item>SCROLL</item>
 		<item>SWITCH_TABS</item>
 		<item>HISTORY</item>
-	</string-array>
+	</string-array>    
 	
 	<!-- 0.3.7 -->
-	<string name="Main.ShareChooserTitle">Share via</string>
+	<string name="Main.ShareChooserTitle">通过共享</string>
 	
-	<string name="Main.MenuShareLinkUrl">Share link</string>
-	<string name="Main.MenuShareImageUrl">Share image</string>
-	<string name="Main.MenuShareEmailUrl">Share email</string>
+	<string name="Main.MenuShareLinkUrl">共享链接</string>
+	<string name="Main.MenuShareImageUrl">共享图像</string>
+	<string name="Main.MenuShareEmailUrl">共享电子邮件</string>
 	
 	<!-- 0.3.8 -->
-	<string name="PreferencesActivity.HideTitleBarPreferenceTitle">Hide title bars</string>
-    <string name="PreferencesActivity.HideTitleBarPreferenceSummary">If checked, windows title bars will not be displayed (need application restart).</string>
+	<string name="PreferencesActivity.HideTitleBarPreferenceTitle">隐藏标题栏</string>
+    <string name="PreferencesActivity.HideTitleBarPreferenceSummary">如果选中，窗口标题栏将不会显示（需要重新启动应用程序）.</string>
     
-    <string name="PreferencesActivity.UseWideViewPortPreferenceTitle">Use wide viewport</string>
-    <string name="PreferencesActivity.UseWideViewPortPreferenceSummary">If checked, browser will use a viewport similar to desktop browsers.</string>
+    <string name="PreferencesActivity.UseWideViewPortPreferenceTitle">使用宽视区</string>
+    <string name="PreferencesActivity.UseWideViewPortPreferenceSummary">如果选中，浏览器将使用视区类似于桌面浏览器.</string>
     
-    <string name="PreferencesActivity.LoadWithOverviewPreferenceTitle">Load pages with overview</string>
-    <string name="PreferencesActivity.LoadWithOverviewPreferenceSummary">If checked, pages will load zoomed out to show an overview of the page.</string>
+    <string name="PreferencesActivity.LoadWithOverviewPreferenceTitle">加载网页的概述</string>
+    <string name="PreferencesActivity.LoadWithOverviewPreferenceSummary">如果选中，页面将加载放大对显示网页的概述.</string>
     
-    <string name="PreferencesActivity.SwitchTabsMethodPreferenceTitle">Switch tabs method</string>
-    <string name="PreferencesActivity.SwitchTabsMethodPreferenceSummary">Define how you can switch between open tabs.</string>
+    <string name="PreferencesActivity.SwitchTabsMethodPreferenceTitle">切换选项卡功能</string>
+    <string name="PreferencesActivity.SwitchTabsMethodPreferenceSummary">定义如何可以打开的选项卡之间切换.</string>
     
-    <string name="PreferencesActivity.SwitchTabButtons">Buttons</string>
-    <string name="PreferencesActivity.SwitchTabFling">Fling</string>
-    <string name="PreferencesActivity.SwitchTabBoth">Both</string>
+    <string name="PreferencesActivity.SwitchTabButtons">按钮</string>
+    <string name="PreferencesActivity.SwitchTabFling">滑动</string>
+    <string name="PreferencesActivity.SwitchTabBoth">两边都有</string>
     <string-array name="SwitchTabsMethodEntries">
 		<item>@string/PreferencesActivity.SwitchTabButtons</item>
 		<item>@string/PreferencesActivity.SwitchTabFling</item>
@@ -397,108 +397,108 @@
 	</string-array>
 	
 	<!-- 0.3.9 -->
-	<string name="HistoryListActivity.Today">Today</string>
-    <string name="HistoryListActivity.Yesterday">Yesterday</string>
-    <string name="HistoryListActivity.LastSevenDays">Last 7 days</string>
-    <string name="HistoryListActivity.LastMonth">Last month</string>
-    <string name="HistoryListActivity.Older">Older</string>
+	<string name="HistoryListActivity.Today">今天</string>
+    <string name="HistoryListActivity.Yesterday">昨天</string>
+    <string name="HistoryListActivity.LastSevenDays">最近7天</string>
+    <string name="HistoryListActivity.LastMonth">上月</string>
+    <string name="HistoryListActivity.Older">更旧</string>
     
-    <string name="QuickAction.Home">Home page</string>
-    <string name="QuickAction.Share">Share</string>
-    <string name="QuickAction.SelectText">Select text</string>
-    <string name="QuickAction.MobileView">Mobile view</string>
+    <string name="QuickAction.Home">主页</string>
+    <string name="QuickAction.Share">共享</string>
+    <string name="QuickAction.SelectText">选择文本</string>
+    <string name="QuickAction.MobileView">移动视图</string>
     
-    <string name="AboutActivity.OtherLicenseText">This application include code from the GreenDroid project (https://github.com/cyrilmottier/GreenDroid), and from the Shaman project (https://github.com/emergentdotorg/shaman), both licensed under the Apache license, version 2.</string>
+    <string name="AboutActivity.OtherLicenseText">此应用程序包括代码从GreenDroid项目 (https://github.com/cyrilmottier/GreenDroid)，和从Shaman项目 (https://github.com/emergentdotorg/shaman)，两者都领有根据的Apache许可证，版本2.</string>
     
     <!-- 0.4.0 -->
-    <string name="PreferencesActivity.WeavePreferenceTitle">Firefox bookmarks synchronization</string>
-    <string name="PreferencesActivity.WeavePreferenceSummary">Manage the settings of the bookmarks synchronization with Firefox Sync.</string>
-    <string name="PreferencesActivity.UseWeavePreferenceTitle">Use Firefox Sync</string>
-    <string name="PreferencesActivity.UseWeavePreferenceSummary">If checked, you can retrieve your bookmarks from Firefox Sync.</string>
-    <string name="PreferencesActivity.WeaveServerPreferenceTitle">Server</string>
-    <string name="PreferencesActivity.WeaveServerPreferenceSummary">Set the Firefox Sync server.</string>
-    <string name="PreferencesActivity.WeaveUsernameTitle">User name</string>
-    <string name="PreferencesActivity.WeaveUsernameSummary">Enter your Firefox Sync user name.</string>
-    <string name="PreferencesActivity.WeavePasswordTitle">Password</string>
-    <string name="PreferencesActivity.WeavePasswordSummary">Enter your Firefox Sync password.</string>
-    <string name="PreferencesActivity.WeaveKeyTitle">Key</string>
-    <string name="PreferencesActivity.WeaveKeySummary">Enter your Firefox Sync key.</string>
+    <string name="PreferencesActivity.WeavePreferenceTitle">Firefox书签同步</string>
+    <string name="PreferencesActivity.WeavePreferenceSummary">管理书签同步的设置与Firefox同步.</string>
+    <string name="PreferencesActivity.UseWeavePreferenceTitle">使用Firefox同步</string>
+    <string name="PreferencesActivity.UseWeavePreferenceSummary">如果选中，您可以从Firefox同步检索您的书签.</string>
+    <string name="PreferencesActivity.WeaveServerPreferenceTitle">服务器</string>
+    <string name="PreferencesActivity.WeaveServerPreferenceSummary">设定Firefox同步服务器.</string>
+    <string name="PreferencesActivity.WeaveUsernameTitle">用户名</string>
+    <string name="PreferencesActivity.WeaveUsernameSummary">请输入您的Firefox同步用户名.</string>
+    <string name="PreferencesActivity.WeavePasswordTitle">密码</string>
+    <string name="PreferencesActivity.WeavePasswordSummary">请输入您的Firefox同步密码.</string>
+    <string name="PreferencesActivity.WeaveKeyTitle">密钥</string>
+    <string name="PreferencesActivity.WeaveKeySummary">请输入您的Firefox同步密钥.</string>
     
-    <string name="WeaveBookmarksListActivity.Title">Firefox bookmarks</string>	
-    <string name="WeaveBookmarksListActivity.MenuSync">Synchronize</string>
-    <string name="WeaveBookmarksListActivity.MenuClear">Clear</string>
-    <string name="WeaveBookmarksListActivity.WeaveRootFolder">Places</string>
-    <string name="WeaveBookmarksListActivity.EmptyText">Firefox bookmarks are not synchronized. Setup your account informations and do a synchronization.</string>
-    <string name="WeaveBookmarksListActivity.EmptyFolderText">No bookmarks in this folder.</string>
-    <string name="WeaveBookmarksListActivity.SetupButton">Setup</string>
-    <string name="WeaveBookmarksListActivity.SyncButton">Synchronize</string>
+    <string name="WeaveBookmarksListActivity.Title">Firefox书签</string>	
+    <string name="WeaveBookmarksListActivity.MenuSync">同步</string>
+    <string name="WeaveBookmarksListActivity.MenuClear">清空</string>
+    <string name="WeaveBookmarksListActivity.WeaveRootFolder">定位</string>
+    <string name="WeaveBookmarksListActivity.EmptyText">Firefox书签没有同步。设置您的账户信息和同步.</string>
+    <string name="WeaveBookmarksListActivity.EmptyFolderText">没有书签在这个文件.</string>
+    <string name="WeaveBookmarksListActivity.SetupButton">设置</string>
+    <string name="WeaveBookmarksListActivity.SyncButton">同步</string>
     
-    <string name="WeaveSync.SyncTitle">Synchronization</string>
-    <string name="WeaveSync.Connecting">Connecting to server&#8230;</string>
-    <string name="WeaveSync.GettingData">Getting data&#8230;</string>
-    <string name="WeaveSync.ReadingData">Reading data: %1$s / %2$s</string>
-    <string name="WeaveSync.WrittingData">Writting data&#8230;</string>
+    <string name="WeaveSync.SyncTitle">同步</string>
+    <string name="WeaveSync.Connecting">正在连接服务器&#8230;</string>
+    <string name="WeaveSync.GettingData">正在获得数据&#8230;</string>
+    <string name="WeaveSync.ReadingData">正在读去数据: %1$s / %2$s</string>
+    <string name="WeaveSync.WrittingData">正在写入数据&#8230;</string>
     
-    <string name="Errors.WeaveSyncFailedTitle">Synchronization failed.</string>
-    <string name="Errors.WeaveSyncFailedMessage">Synchronization failed: %s</string>
-    <string name="Errors.WeaveAuthFailedMessage">Invalid authentication token. Check your settings.</string>
+    <string name="Errors.WeaveSyncFailedTitle">同步失败.</string>
+    <string name="Errors.WeaveSyncFailedMessage">同步失败: %s</string>
+    <string name="Errors.WeaveAuthFailedMessage">无效的身份验证凭据。请检查您的设置.</string>
     
-    <string name="WeaveServerPreferenceActivity.Prompt">Server</string>    
-    <string name="WeaveServerPreferenceActivity.Title">Server</string>    
-    <string name="WeaveServerPreferenceActivity.DefaultServer">Firefox Sync server</string>
-    <string name="WeaveServerPreferenceActivity.CustomServer">Custom server</string>
+    <string name="WeaveServerPreferenceActivity.Prompt">服务器</string>    
+    <string name="WeaveServerPreferenceActivity.Title">服务器</string>    
+    <string name="WeaveServerPreferenceActivity.DefaultServer">Firefox同步服务器</string>
+    <string name="WeaveServerPreferenceActivity.CustomServer">自定义服务器</string>
     
     <string-array name="WeaveServerValues">
         <item>@string/WeaveServerPreferenceActivity.DefaultServer</item>
         <item>@string/WeaveServerPreferenceActivity.CustomServer</item>        
     </string-array>
     
-    <string name="Main.FileChooserPrompt">Choose file for upload</string>
+    <string name="Main.FileChooserPrompt">选择要上载的文件</string>
     
-    <string name="Commons.HistoryBookmarksExportSDCardConfirmation">Export history and bookmarks</string>
-    <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">Export done</string>
-    <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">Your history and bookmarks have been saved to %s.</string>
-    <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">Export failed</string>
-    <string name="Commons.HistoryBookmarksFailedMessage">Error message: %s.</string>
-    <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">Import failed</string>
+    <string name="Commons.HistoryBookmarksExportSDCardConfirmation">出口历史和书签</string>
+    <string name="Commons.HistoryBookmarksExportSDCardDoneTitle">完成出口</string>
+    <string name="Commons.HistoryBookmarksExportSDCardDoneMessage">您的历史和书签保存到 %s.</string>
+    <string name="Commons.HistoryBookmarksExportSDCardFailedTitle">失败出口</string>
+    <string name="Commons.HistoryBookmarksFailedMessage">错误消息: %s.</string>
+    <string name="Commons.HistoryBookmarksImportSDCardFailedTitle">失败进口</string>
     
-    <string name="Commons.OperationCanBeLongMessage">This operation can take some times. Do you wish to proceed?</string>
+    <string name="Commons.OperationCanBeLongMessage">此操作可能需要一些时间。你希望继续吗？</string>
     
-    <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">Manage bookmarks and history</string>
-    <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">Import, export, clear history and bookmarks.</string>
-    <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">Export bookmarks and history</string>
-    <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">Export bookmarks and history to the SD card.</string>
-    <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">Import bookmarks and history</string>
-    <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">Import bookmarks and history from the SD card.</string>
-    <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">Clear history and/or bookmarks</string>
-    <string name="PreferencesActivity.SummaryCannotBeUndone">Use with caution, this operation cannot be undone.</string>
+    <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceTitle">管理书签和历史</string>
+    <string name="PreferencesActivity.ToolsHistoryBookmarksPreferenceSummary">进口，出口，清空历史和书签.</string>
+    <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceTitle">出口书签和历史</string>
+    <string name="PreferencesActivity.ExportHistoryBookmarksPreferenceSummary">出口书签和历史至SD卡.</string>
+    <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceTitle">进口书签和历史</string>
+    <string name="PreferencesActivity.ImportHistoryBookmarksPreferenceSummary">进口书签和历史从SD卡.</string>
+    <string name="PreferencesActivity.PrivacyClearHistoryBookmarksTitle">清空历史和书签</string>
+    <string name="PreferencesActivity.SummaryCannotBeUndone">请谨慎使用，此操作无法撤销.</string>
     
-    <string name="Commons.ClearingHistoryBookmarks">Clearing history and/or bookmarks&#8230;</string>
-    <string name="Commons.ClearHistoryBookmarks">Clear history and/or bookmarks</string>
+    <string name="Commons.ClearingHistoryBookmarks">正在清空历史和书签&#8230;</string>
+    <string name="Commons.ClearHistoryBookmarks">清空历史和书签</string>
     
-    <string name="Commons.Bookmarks">Bookmarks</string>
-    <string name="Commons.History">History</string>
-    <string name="Commons.All">All</string>
+    <string name="Commons.Bookmarks">书签</string>
+    <string name="Commons.History">历史</string>
+    <string name="Commons.All">所有</string>
     
-    <string name="Commons.ExportingHistoryBookmarks">Exporting history and bookmarks&#8230;</string>
-    <string name="Commons.ImportingHistoryBookmarks">Importing history and bookmarks&#8230;</string>
-    <string name="Commons.ImportHistoryBookmarksSource">Choose the import source</string>
+    <string name="Commons.ExportingHistoryBookmarks">正在出口历史和书签&#8230;</string>
+    <string name="Commons.ImportingHistoryBookmarks">正在进口历史和书签&#8230;</string>
+    <string name="Commons.ImportHistoryBookmarksSource">选择进口源</string>
     
-    <string name="Commons.ClearingBookmarks">Clearing bookmarks&#8230;</string>
+    <string name="Commons.ClearingBookmarks">正在清空书签中&#8230;</string>
     
-    <string name="DownloadListActivity.RemoveCompletedDownloads">Remove completed downloads</string>
+    <string name="DownloadListActivity.RemoveCompletedDownloads">删除已完成的下载</string>
     
-    <string name="QuickAction.Find">Find on page</string>
-    <string name="SearchDialog.Hint">Find on page</string>
+    <string name="QuickAction.Find">页面上找到</string>
+    <string name="SearchDialog.Hint">页面上找到</string>
     
     <!-- 0.4.2 -->
-    <string name="PreferencesActivity.AdvancedCategoryTitle">Advanced</string>
+    <string name="PreferencesActivity.AdvancedCategoryTitle">高级</string>
     
-    <string name="PreferencesActivity.BookmarksDatabaseTitle">Bookmarks storage</string>
-    <string name="PreferencesActivity.BookmarksDatabaseSummary">Choose the bookmarks storage mode.</string>
+    <string name="PreferencesActivity.BookmarksDatabaseTitle">书签存储</string>
+    <string name="PreferencesActivity.BookmarksDatabaseSummary">选择书签存储的方式.</string>
     
-    <string name="PreferencesActivity.BookmarksDatabaseStock">Android bookmarks</string>
-    <string name="PreferencesActivity.BookmarksDatabaseInternal">Internal</string>
+    <string name="PreferencesActivity.BookmarksDatabaseStock">Android</string>
+    <string name="PreferencesActivity.BookmarksDatabaseInternal">内部</string>
         
     <string-array name="BookmarksDatabaseEntries">
 		<item>@string/PreferencesActivity.BookmarksDatabaseStock</item>
@@ -507,33 +507,33 @@
     <string-array name="BookmarksDatabaseValues">
 		<item>STOCK</item>
 		<item>INTERNAL</item>
-	</string-array>    
+	</string-array>
+	
+    <string name="HistoryListActivity.BookmarkAdded">添加到书签.</string>
+    <string name="HistoryListActivity.BookmarkRemoved">从书签中删除.</string>
     
-    <string name="HistoryListActivity.BookmarkAdded">Added to bookmarks.</string>
-    <string name="HistoryListActivity.BookmarkRemoved">Removed from bookmarks.</string>
+    <string name="HttpAuthenticationDialog.DialogTitle">登录到 %1$s - %2$s</string>
+    <string name="HttpAuthenticationDialog.UserName">姓名</string>
+    <string name="HttpAuthenticationDialog.Password">密码</string>
     
-    <string name="HttpAuthenticationDialog.DialogTitle">Sign in to %1$s - %2$s</string>
-    <string name="HttpAuthenticationDialog.UserName">Name</string>
-    <string name="HttpAuthenticationDialog.Password">Password</string>
+    <string name="Commons.Proceed">继续</string>
     
-    <string name="Commons.Proceed">Proceed</string>
+    <string name="PreferencesActivity.EnableProxySettings">启用系统代理</string>
+    <string name="PreferencesActivity.EnableProxySettingsSummary">启用或禁用支持的系统代理设置.</string>
+    <string name="ProxySettings.EnablingProxySettings">正在启用代理设置&#8230;</string>
+    <string name="ProxySettings.ErrorProxySettingsNotValid">无效系统代理设置.</string>
+    <string name="ProxySettings.ErrorProxyServerNotReachable">代理服务器不能访问.</string>
+    <string name="ProxySettings.ErrorProxyInternetNotReachable">不能访问网络通过此代理服务器.</string>
+    <string name="ProxySettings.ProxySettingsEnabled">成功启用了代理设置.</string>
     
-    <string name="PreferencesActivity.EnableProxySettings">Enable System Proxy</string>
-    <string name="PreferencesActivity.EnableProxySettingsSummary">Enable or disable the support to system proxy settings.</string>
-    <string name="ProxySettings.EnablingProxySettings">Enabling proxy settings&#8230;</string>
-    <string name="ProxySettings.ErrorProxySettingsNotValid">Invalid system proxy settings.</string>
-    <string name="ProxySettings.ErrorProxyServerNotReachable">Proxy server is not reachable.</string>
-    <string name="ProxySettings.ErrorProxyInternetNotReachable">Cannot access the Web through the specified proxy server.</string>
-    <string name="ProxySettings.ProxySettingsEnabled">Proxy settings succesfully enabled.</string>
+    <string name="AboutActivity.ContributorsText">Zirco浏览器贡献者:\n   • LeChuck (代理设置);\n   • Martin (音量键与滚动，德语翻译);\n   • Isaac L. (西班牙语翻译);\n • Cynthia R., Jéssica B. and Thales A. (葡萄牙语翻译);</string>
     
-    <string name="AboutActivity.ContributorsText">Contributors:\n   • LeChuck (Proxy settings);\n   • Martin (Scroll with volume keys, German translation);\n   • Isaac L., Franky D. (Spanish translation);\n • Cynthia R., Jéssica B. and Thales A. (Portuguese translation);</string>
-    
-    <string name="PreferencesActivity.EnableRestoreLastPagePreferenceTitle">Restore last page</string>
-    <string name="PreferencesActivity.EnableRestoreLastPagePreferenceSummary">If checked, the last page will be restore if available.</string>
+    <string name="PreferencesActivity.EnableRestoreLastPagePreferenceTitle">恢复选项卡</string>
+    <string name="PreferencesActivity.EnableRestoreLastPagePreferenceSummary">如果选中，选项卡将会恢复如果可用.</string>
     
     <!-- 0.4.3 -->
-    <string name="VideoLoading">Loading video\u2026</string>
+    <string name="VideoLoading">加载视频\u2026</string>
     
+    <!-- download -->
     <string name="download_videos_manage_space">&#160;&#160;已用&#160;&#160;<xliff:g id="usedspace">%s</xliff:g>&#160;，剩余可用&#160;&#160;<xliff:g id="freespace">%s</xliff:g></string>
-    
 </resources>

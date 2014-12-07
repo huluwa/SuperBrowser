@@ -1,6 +1,7 @@
 package org.zirco.ui.activities.preferences;
 
 import org.zirco.R;
+import org.zirco.ui.view.PublicTopNavigateView;
 import org.zirco.utils.LogUtils;
 
 import android.content.Context;
@@ -15,13 +16,16 @@ import br.com.dina.ui.widget.UITableView.ClickListener;
 
 public class SettingsActivity extends BaseSettingActivity {
 
+	private PublicTopNavigateView mPublicTopNavigateView;
 	private UITableView mTableView01;
 	private UITableView mTableView02;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.settings_layout);
+		
+		mPublicTopNavigateView = new PublicTopNavigateView(this, R.layout.settings_layout);
+		setContentView(mPublicTopNavigateView);
 		
 		buildTable01();
 		buildTable02();
@@ -86,7 +90,6 @@ public class SettingsActivity extends BaseSettingActivity {
 		mTableView02.addBasicItem("推荐给好友");
 		mTableView02.addBasicItem("意见反馈");
 		mTableView02.addBasicItem("关于五鱼");
-		mTableView02.addBasicItem("退出");
 		
 		ClickListener listener = new ClickListener() {
 			@Override

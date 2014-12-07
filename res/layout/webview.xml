@@ -17,39 +17,89 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:background="@color/browser_color_ffffffff" >
 
     <org.zirco.ui.components.CustomWebView
         android:id="@+id/webview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/errorLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:orientation="vertical" >
+        android:visibility="gone" >
 
-        <TextView
-            android:id="@+id/tv01"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
-            android:layout_height="40dip"
-            android:text="test01"
-            android:textColor="@color/browser_color_6633B5E5" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="74dp"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/tv02"
-            android:layout_width="wrap_content"
-            android:layout_height="40dip"
-            android:text="test02"
-            android:textColor="#663ff5E5" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="呀,页面无法显示啦!"
+                android:textColor="#3299cc"
+                android:textSize="20dip" />
 
-        <TextView
-            android:id="@+id/tv03"
-            android:layout_width="wrap_content"
-            android:layout_height="40dip"
-            android:text="test03"
-            android:textColor="#66eff5f0" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:text="网络信号弱或数据连接异常" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="输入网址不正确" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="网站可能出现了故障" />
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/linearLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="88dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/backBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dip"
+                android:layout_marginRight="10dip"
+                android:layout_weight="1"
+                android:text="返回" />
+
+            <Button
+                android:id="@+id/refreshBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dip"
+                android:layout_marginRight="30dip"
+                android:layout_weight="1"
+                android:text="刷新" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -16,7 +16,6 @@
             android:layout_height="fill_parent"
             android:orientation="vertical" >
 
-
             <br.com.dina.ui.widget.UITableView
                 android:id="@+id/tableView01"
                 style="@style/UITableView" />
@@ -24,7 +23,13 @@
             <br.com.dina.ui.widget.UITableView
                 android:id="@+id/tableView02"
                 style="@style/UITableView" />
-            
+
+            <br.com.dina.ui.widget.UIButton
+                android:id="@+id/quiteBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="10dip"
+                ui:title="退出" />
         </LinearLayout>
     </ScrollView>
 

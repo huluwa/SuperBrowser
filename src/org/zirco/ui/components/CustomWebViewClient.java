@@ -50,6 +50,13 @@ public class CustomWebViewClient extends WebViewClient {
 	}
 	
 	@Override
+	public void onReceivedError(WebView view, int errorCode,
+			String description, String failingUrl) {
+		mCallback.onReceivedError(failingUrl);
+		super.onReceivedError(view, errorCode, description, failingUrl);
+	}
+
+	@Override
 	public void onPageFinished(WebView view, String url) {			
 		((CustomWebView) view).notifyPageFinished();
 		mCallback.onPageFinished(url);
@@ -149,7 +156,7 @@ public class CustomWebViewClient extends WebViewClient {
 			return true;
 			
 		} else {
-						
+					
 			// If the url is not from GWT mobile view, and is in the mobile view url list, then load it with GWT.			
 			if ((!url.startsWith(Constants.URL_GOOGLE_MOBILE_VIEW_NO_FORMAT)) &&
 					(UrlUtils.checkInMobileViewUrlList(view.getContext(), url))) {
@@ -161,7 +168,8 @@ public class CustomWebViewClient extends WebViewClient {
 			} else {			
 				((CustomWebView) view).resetLoadedUrl();
 				mCallback.onUrlLoading(url);
-				return false;
+//				return false;
+				return true;
 			}
 		}
 	}

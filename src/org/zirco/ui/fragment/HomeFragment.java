@@ -2,11 +2,15 @@ package org.zirco.ui.fragment;
 
 import org.zirco.R;
 import org.zirco.model.adapters.HomePagerAdapter;
-import org.zirco.ui.view.PagerSlidingTabStrip;
 import org.zirco.ui.view.NestedViewPager;
+import org.zirco.ui.view.PagerSlidingTabStrip;
+import org.zirco.utils.LogUtils;
+
+import com.viewpagerindicator.LinePageIndicator;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,8 +24,9 @@ public class HomeFragment extends BaseFragment {
 	private NestedViewPager mCellViewPager;
 	private HomePagerAdapter mCellPagerAdapter;
 	private PagerSlidingTabStrip mPagerSlidingTabStrip;
+	private LinePageIndicator mLinePageIndicator;
 	
-	private LinearLayout mRootLinearLayout;
+	private ViewGroup mRootViewGroup;
 	
 	public HomeFragment() {
 		setType(BaseFragment.TYPE_CELL_FRAGMENT);
@@ -42,9 +47,8 @@ public class HomeFragment extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-//		return super.onCreateView(inflater, container, savedInstanceState);
-		mRootLinearLayout = (LinearLayout) inflater.inflate(R.layout.cell_fragment_layout, null);
-		return mRootLinearLayout;
+		mRootViewGroup = (ViewGroup) inflater.inflate(R.layout.cell_fragment_layout, null);
+		return mRootViewGroup;
 	}
 	
 	@Override
@@ -64,16 +68,39 @@ public class HomeFragment extends BaseFragment {
 	 * */
 	private void initViewPagerAndTab() {
 		Log.i("chenyg", "CellFragment-->initViewPagerAndTab()");
-		mCellViewPager = (NestedViewPager) mRootLinearLayout.findViewById(R.id.cell_viewpager);
+		mCellViewPager = (NestedViewPager) mRootViewGroup.findViewById(R.id.cell_viewpager);
 		mCellViewPager.setPagingEnabled(true);
 		mCellPagerAdapter = new HomePagerAdapter(getChildFragmentManager());
 		mCellViewPager.setAdapter(mCellPagerAdapter);
 		mCellViewPager.setCurrentItem(0);
 		
-		mPagerSlidingTabStrip = (PagerSlidingTabStrip) mRootLinearLayout.findViewById(R.id.cell_tabs);
-		mPagerSlidingTabStrip.setViewPager(mCellViewPager);
+//		mPagerSlidingTabStrip = (PagerSlidingTabStrip) mRootViewGroup.findViewById(R.id.cell_tabs);
+//		mPagerSlidingTabStrip.setViewPager(mCellViewPager);
+//		mPagerSlidingTabStrip.setOnPageChangeListener(onPageChangeListener);
 		
+		mLinePageIndicator = (LinePageIndicator) mRootViewGroup.findViewById(R.id.indicator);
+		mLinePageIndicator.setViewPager(mCellViewPager);
+		mLinePageIndicator.setOnPageChangeListener(onPageChangeListener);
 	}
+
+	private ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+
+		@Override
+		public void onPageSelected(int position) {
+			LogUtils.i("postion=" + position);
+		}
+
+		@Override
+		public void onPageScrolled(int position, float positionOffset,
+				int positionOffsetPixels) {
+
+		}
+
+		@Override
+		public void onPageScrollStateChanged(int state) {
+
+		}
+	};
 
 	@Override
 	public void onStart() {

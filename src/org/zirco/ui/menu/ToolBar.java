@@ -38,9 +38,9 @@ public class ToolBar {
 	private ImageButton mPreviousButton;
 	private ImageButton mNextButton;
 	private ImageButton mRemoveButton;
-	private ImageButton mNewTabButton;
+	private ImageButton mTabCenterButton;
 	private ImageButton mMenuButton;
-	private ImageButton mQuickButton;
+	private ImageButton mHomeButton;
 	//menu
 	private RelativeLayout mMenuLayout;
 	
@@ -100,8 +100,8 @@ public class ToolBar {
 //      }          
 //  });
     	
-		mNewTabButton = (ImageButton) root.findViewById(R.id.NewTabBtn);
-		mNewTabButton.setOnClickListener(new View.OnClickListener() {
+		mTabCenterButton = (ImageButton) root.findViewById(R.id.TabCenterBtn);
+		mTabCenterButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             	if(callback != null) {
             		callback.onCreateTabPage();
@@ -118,8 +118,8 @@ public class ToolBar {
             }
         });
 		
-		mQuickButton = (ImageButton) root.findViewById(R.id.QuickBtn);
-		mQuickButton.setOnClickListener(new View.OnClickListener() {
+		mHomeButton = (ImageButton) root.findViewById(R.id.HomeBtn);
+		mHomeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {            	
             	if(callback != null) {
             		callback.onQuickButton();

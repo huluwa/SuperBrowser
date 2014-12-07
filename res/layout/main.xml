@@ -25,13 +25,13 @@
         android:layout_height="fill_parent" >
 
         <!-- 顶部导航栏 -->
-        
+
         <LinearLayout
             android:id="@+id/BarLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:background="@drawable/tb_background_top"
+            android:background="@color/browser_color_ff3494e6"
             android:orientation="vertical"
             android:scaleType="fitXY"
             android:weightSum="0.75" >
@@ -91,17 +91,18 @@
         </LinearLayout>
 
         <!-- 顶部查找栏 -->
-        
+
         <LinearLayout
             android:id="@+id/findControls"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:background="@android:drawable/bottom_bar"
+            android:background="@color/browser_color_ff3494e6"
             android:paddingBottom="1dip"
             android:paddingLeft="4dip"
             android:paddingRight="4dip"
-            android:paddingTop="5dip" >
+            android:paddingTop="5dip"
+            android:visibility="gone" >
 
             <ImageButton
                 android:id="@+id/find_previous"
@@ -140,7 +141,6 @@
                 android:src="@drawable/ic_btn_close_panel" />
         </LinearLayout>
 
-        
         <!-- 底部控制栏 -->
 
         <LinearLayout
@@ -148,7 +148,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/tb_background_bottom"
+            android:background="@color/browser_color_ffca0000"
             android:scaleType="fitXY"
             android:weightSum="5" >
 
@@ -160,9 +160,9 @@
                 android:layout_marginTop="7dip"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_bottom"
-                android:src="@drawable/ic_btn_next" >
+                 >
             </ImageButton>
-            
+
             <ImageButton
                 android:id="@+id/NextBtn"
                 android:layout_width="wrap_content"
@@ -172,7 +172,7 @@
                 android:layout_marginTop="7dip"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_bottom"
-                android:src="@drawable/ic_btn_forward" >
+                 >
             </ImageButton>
 
             <ImageButton
@@ -183,7 +183,7 @@
                 android:layout_marginTop="7dip"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_bottom"
-                android:src="@drawable/ic_btn_menu" >
+                 >
             </ImageButton>
 
             <ImageButton
@@ -194,9 +194,9 @@
                 android:layout_marginTop="7dip"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_bottom"
-                android:src="@drawable/ic_btn_open_tab" >
+                 >
             </ImageButton>
-            
+
             <ImageButton
                 android:id="@+id/QuickBtn"
                 android:layout_width="wrap_content"
@@ -205,20 +205,18 @@
                 android:layout_marginTop="7dip"
                 android:layout_weight="1"
                 android:background="@drawable/buttons_bottom"
-                android:src="@drawable/ic_btn_home" >
+                 >
             </ImageButton>
-
         </LinearLayout>
-        
+
         <org.zirco.ui.view.NestedViewPager
             android:id="@+id/detailplay_half_detail_viewpager"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="@color/browser_color_fff6f6f6"
+            android:layout_above="@id/BottomBarLayout"
             android:layout_below="@id/BarLayout"
-            android:layout_above="@id/BottomBarLayout" />
-        
-        
+            android:background="@color/browser_color_fff6f6f6" />
+
         <RelativeLayout
             android:id="@+id/menu_layout"
             android:layout_width="fill_parent"
@@ -228,7 +226,6 @@
             android:background="@color/browser_color_6633B5E5"
             android:visibility="gone" >
         </RelativeLayout>
-
     </RelativeLayout>
 
 </LinearLayout>

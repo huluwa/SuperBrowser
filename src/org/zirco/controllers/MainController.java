@@ -21,6 +21,7 @@ import org.zirco.ui.menu.ToolBarCallback;
 import org.zirco.ui.view.NestedViewPager;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
+import org.zirco.utils.LogUtils;
 import org.zirco.utils.UrlUtils;
 
 import android.content.Context;
@@ -91,7 +92,7 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 		
 		@Override
 		public void onPageSelected(int arg0) {
-			Log.i("chenyg", "onPageChangeListener.onPageSelected(), Position index=" + arg0);
+			LogUtils.i("onPageChangeListener.onPageSelected(), Position index=" + arg0);
 			mTabPagerAdapter.setCurrentPosition(arg0);
 			mCurrentFragment = (BaseFragment) mTabPagerAdapter.getItem(mTabPagerAdapter.getCurrentPosition());
 			if(mCurrentFragment.getType() == BaseFragment.TYPE_WEB_FRAGMENT) {
@@ -144,8 +145,9 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 
     	if(navigateToHome) {
     		mCurrentFragment = new HomeFragment();
+//    		mCurrentFragment = new WebviewFragment(mActivity);
     	} else {
-    		mCurrentFragment = new WebviewFragment(mActivity);
+    		mCurrentFragment = new WebviewFragment();
     	}
 //    	mCurrentWebView = Fragment.getCustomWebView();
 		
@@ -473,6 +475,7 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 
 	@Override
 	public void onNavigateToUrl(String url) {
+		addTab(false);
 		navigateToUrl(url);
 	}
 
@@ -517,37 +520,5 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 //
 //public void onUrlLoading(String url) {
 //	setToolbarsVisibility(true);
-//}
-//
-//public void onMailTo(String url) {
-//	Intent sendMail = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//	startActivity(sendMail);
-//}
-//
-//public void onExternalApplicationUrl(String url) {
-//	try {
-//		
-//		Intent i  = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//		startActivity(i);
-//		
-//	} catch (Exception e) {
-//		
-//		// Notify user that the vnd url cannot be viewed.
-//		new AlertDialog.Builder(this)
-//		.setTitle(R.string.Main_VndErrorTitle)
-//		.setMessage(String.format(getString(R.string.Main_VndErrorMessage), url))
-//		.setPositiveButton(android.R.string.ok,
-//				new AlertDialog.OnClickListener()
-//		{
-//			public void onClick(DialogInterface dialog, int which) { }
-//		})
-//		.setCancelable(true)
-//		.create()
-//		.show();
-//	}
-//}
-//
-//public void setHttpAuthUsernamePassword(String host, String realm, String username, String password) {
-//	mCurrentWebView.setHttpAuthUsernamePassword(host, realm, username, password);
 //}
 }

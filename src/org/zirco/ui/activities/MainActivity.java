@@ -331,7 +331,6 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
 	private void buildComponents() {
 		
 		mToolsActionGrid = new QuickActionGrid(this);
-		mToolsActionGrid.addQuickAction(new QuickAction(this, R.drawable.ic_btn_home, R.string.QuickAction_Home));
 		mToolsActionGrid.addQuickAction(new QuickAction(this, R.drawable.ic_btn_share, R.string.QuickAction_Share));
 		mToolsActionGrid.addQuickAction(new QuickAction(this, R.drawable.ic_btn_find, R.string.QuickAction_Find));
 		mToolsActionGrid.addQuickAction(new QuickAction(this, R.drawable.ic_btn_select, R.string.QuickAction_SelectText));
@@ -715,7 +714,7 @@ public class MainActivity extends FragmentActivity implements IToolbarsContainer
     		mCurrentFragment = new HomeFragment();
 //    		mCurrentFragment = new WebviewFragment(this);
     	} else {
-    		mCurrentFragment = new WebviewFragment(this);
+    		mCurrentFragment = new WebviewFragment();
     	}
 //    	mCurrentWebView = Fragment.getCustomWebView();
 		

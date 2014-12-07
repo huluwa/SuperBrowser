@@ -358,7 +358,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 		@Override
 		public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 		    currentPosition = position;
-			Log.i("chenyg", "onPageScrolled()--->position=" + position + "currentPosition=" + currentPosition);
 			currentPositionOffset = positionOffset;
 
 			scrollToChild(position, (int) (positionOffset * tabsContainer.getChildAt(position).getWidth()));

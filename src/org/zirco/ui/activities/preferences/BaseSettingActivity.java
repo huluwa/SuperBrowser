@@ -4,4 +4,6 @@ import org.zirco.ui.activities.BaseActivity;
 
 public class BaseSettingActivity extends BaseActivity {
 
+	
+	
 }

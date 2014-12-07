@@ -332,22 +332,22 @@ public class NavigatBar implements IToolbarsContainer{
 		if (find.length() == 0) {
 			mFindPreviousButton.setEnabled(false);
 			mFindNextButton.setEnabled(false);
-//			mCurrentWebView.clearMatches();
+			mMainController.getCurrentWebView().clearMatches();
 		} else {
-//			int found = mCurrentWebView.findAll(find.toString());
-//			if (found < 2) {
-//				mFindPreviousButton.setEnabled(false);
-//				mFindNextButton.setEnabled(false);
-//			} else {
-//				mFindPreviousButton.setEnabled(true);
-//				mFindNextButton.setEnabled(true);
-//			}
+			int found = mMainController.getCurrentWebView().findAll(find.toString());
+			if (found < 2) {
+				mFindPreviousButton.setEnabled(false);
+				mFindNextButton.setEnabled(false);
+			} else {
+				mFindPreviousButton.setEnabled(true);
+				mFindNextButton.setEnabled(true);
+			}
 		}
 	}
 
 	private void showFindDialog() {
 		setFindBarVisibility(true);
-//		mCurrentWebView.doSetFindIsUp(true);
+		mMainController.getCurrentWebView().doSetFindIsUp(true);
 		CharSequence text = mFindText.getText();
 		if (text.length() > 0) {
 			mFindText.setSelection(0, text.length());
@@ -363,7 +363,8 @@ public class NavigatBar implements IToolbarsContainer{
 
 	private void closeFindDialog() {
 		hideKeyboardFromFindDialog();
-//		mCurrentWebView.doNotifyFindDialogDismissed();
+		mMainController.getCurrentWebView().doNotifyFindDialogDismissed();
+		mMainController.getCurrentWebView().clearMatches();
 		setFindBarVisibility(false);
 	}
 

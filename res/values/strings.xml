@@ -16,7 +16,7 @@
  -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">        
-    <string name="ApplicationName">Zirco Browser</string>
+    <string name="ApplicationName">五鱼浏览器</string>
     <string name="ApplicationNameUrl">Zirco Browser - %s</string>
     <string name="ApplicationDescription">使用Zirco Browser让你更好的使用互联网</string>
     

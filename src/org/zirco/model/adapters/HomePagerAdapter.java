@@ -6,9 +6,10 @@ import org.zirco.ui.fragment.HomeFragmentManager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class HomePagerAdapter extends FragmentStatePagerAdapter {
+public class HomePagerAdapter extends FragmentPagerAdapter {
 	
 	private HomeFragmentManager mHomeFragmentManager;
 	private FragmentManager mFragmentManager;

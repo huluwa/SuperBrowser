@@ -1,6 +1,7 @@
 package org.zirco.ui.activities.preferences;
 
 import org.zirco.R;
+import org.zirco.ui.view.PublicTopNavigateView;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -20,13 +21,16 @@ import br.com.dina.ui.widget.UITableView.ClickListener;
  */
 public class PrimeSettingsActivity extends BaseSettingActivity {
 
+	private PublicTopNavigateView mPublicTopNavigateView;
 	private UITableView mTableView01;
 	private UITableView mTableView02;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.settings_layout);
+		
+		mPublicTopNavigateView = new PublicTopNavigateView(this, R.layout.settings_layout);
+		setContentView(mPublicTopNavigateView);
 		
 		buildTable01();
 		buildTable02();

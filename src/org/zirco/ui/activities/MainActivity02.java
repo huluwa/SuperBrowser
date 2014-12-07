@@ -16,87 +16,43 @@
 package org.zirco.ui.activities;
 
 import java.util.Iterator;
-import java.util.List;
 
-import org.greendroid.QuickAction;
-import org.greendroid.QuickActionGrid;
-import org.greendroid.QuickActionWidget;
-import org.greendroid.QuickActionWidget.OnQuickActionClickListener;
 import org.zirco.R;
 import org.zirco.controllers.Controller;
 import org.zirco.controllers.MainController;
 import org.zirco.events.EventConstants;
 import org.zirco.events.EventController;
 import org.zirco.events.IDownloadEventsListener;
-import org.zirco.model.adapters.TabPagerAdapter;
-import org.zirco.model.adapters.UrlSuggestionCursorAdapter;
 import org.zirco.model.items.DownloadItem;
 import org.zirco.providers.BookmarksProviderWrapper;
 import org.zirco.providers.BookmarksProviderWrapper.BookmarksSource;
-import org.zirco.ui.activities.preferences.PreferencesActivity;
-import org.zirco.ui.components.CustomWebView;
-import org.zirco.ui.components.CustomWebViewClientCallback;
-import org.zirco.ui.fragment.BaseFragment;
-import org.zirco.ui.fragment.HomeFragment;
-import org.zirco.ui.fragment.WebviewFragment;
-import org.zirco.ui.runnables.HideToolbarsRunnable;
-import org.zirco.ui.view.NestedViewPager;
-import org.zirco.utils.AnimationManager;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
-import org.zirco.utils.UrlUtils;
 
 import android.app.AlarmManager;
-import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.content.res.Configuration;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.ValueCallback;
 import android.webkit.WebIconDatabase;
-import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.FilterQueryProvider;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.SimpleCursorAdapter.CursorToStringConverter;
 import android.widget.Toast;
 
 /**
@@ -142,14 +98,6 @@ public class MainActivity02 extends BaseActivity implements IDownloadEventsListe
         
         Controller.getInstance().setPreferences(PreferenceManager.getDefaultSharedPreferences(this));       
         
-        if (Controller.getInstance().getPreferences().getBoolean(Constants.PREFERENCES_SHOW_FULL_SCREEN, false)) {        	
-        	getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        }
-        
-        if (Controller.getInstance().getPreferences().getBoolean(Constants.PREFERENCES_GENERAL_HIDE_TITLE_BARS, true)) {
-        	requestWindowFeature(Window.FEATURE_NO_TITLE);
-        }
-
         setContentView(R.layout.main02);                        
         
         EventController.getInstance().addDownloadListener(this); 
@@ -574,4 +522,7 @@ public class MainActivity02 extends BaseActivity implements IDownloadEventsListe
 		return mContentLayout;
 	}
 	
+	public MainController getController() {
+		return mManController;
+	}
 }

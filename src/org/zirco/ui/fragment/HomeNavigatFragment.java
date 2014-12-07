@@ -1,75 +1,18 @@
 package org.zirco.ui.fragment;
 
-import org.zirco.R;
-
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
-public class HomeNavigatFragment extends BaseFragment {
+public class HomeNavigatFragment extends WebviewFragment {
 
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-	}
-
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-	
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		return inflater.inflate(R.layout.base_fragment_layout, null);
-	}
+	private String NAVIGAT_URL = "file:///android_asset/navigate.html";
 	
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-	}
-	
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-	}
-	
-
-	@Override
-	public void onStart() {
-		super.onStart();
+		if(!NAVIGAT_URL.equals(getCustomWebView().getLoadedUrl())) {
+			getCustomWebView().loadUrl(NAVIGAT_URL);
+		}
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
-	
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
-
-	@Override
-	public void onStop() {
-		super.onStop();
-	}
-
-	@Override
-	public void onDestroyView() {
-		super.onDestroyView();
-	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-	}
-
-	@Override
-	public void onDetach() {
-		super.onDetach();
-	}
 }

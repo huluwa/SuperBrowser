@@ -10,8 +10,10 @@ import org.zirco.ui.components.CustomWebViewClient;
 import org.zirco.ui.components.CustomWebViewClientCallback;
 import org.zirco.ui.runnables.FaviconUpdaterRunnable;
 import org.zirco.ui.runnables.HistoryUpdater;
+import org.zirco.ui.view.CustomWebContextMenu;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
+import org.zirco.utils.LogUtils;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -166,7 +168,7 @@ public class WebviewFragment extends BaseFragment implements
 
 		mCustomWebView.setWebViewClient(new CustomWebViewClient(this));
 		mCustomWebView.setOnTouchListener(this);
-
+		
 		mCustomWebView
 				.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
 
@@ -207,6 +209,10 @@ public class WebviewFragment extends BaseFragment implements
 						HitTestResult result = ((WebView) v).getHitTestResult();
 
 						int resultType = result.getType();
+
+						CustomWebContextMenu customWebContextMenu = new CustomWebContextMenu(mActivity, resultType);
+						customWebContextMenu.show(v, (int)mRawX, (int)mRawY);
+						
 						if ((resultType == HitTestResult.ANCHOR_TYPE)
 								|| (resultType == HitTestResult.IMAGE_ANCHOR_TYPE)
 								|| (resultType == HitTestResult.SRC_ANCHOR_TYPE)
@@ -806,9 +812,17 @@ public class WebviewFragment extends BaseFragment implements
 
 	// ------------OnTouchListener--------------------------------------------
 
+	private float mRawX;
+	private float mRawY;
+	
 	@Override
 	public boolean onTouch(View arg0, MotionEvent arg1) {
 		// TODO Auto-generated method stub
+		
+		mRawX = arg1.getRawX();
+		mRawY = arg1.getRawY();
+		
+		LogUtils.i("arg1.getRawX()=" + arg1.getRawX() + "ar1.getRawY()=" + arg1.getRawY() );
 		return false;
 	}
 

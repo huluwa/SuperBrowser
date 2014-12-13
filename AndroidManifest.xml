@@ -37,7 +37,6 @@
         android:largeScreens="true"
         android:normalScreens="true"
         android:smallScreens="true" />
-    
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -45,10 +44,10 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
+        android:name="org.zirco.BrowserApplication"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
-        android:label="@string/ApplicationName"
-        android:hardwareAccelerated="true" 
-        android:name="org.zirco.BrowserApplication" >
+        android:label="@string/ApplicationName" >
         <activity
             android:name="org.zirco.ui.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation"
@@ -57,7 +56,9 @@
         <activity
             android:name="org.zirco.ui.activities.MainActivity02"
             android:configChanges="keyboardHidden|orientation"
-            android:label="@string/ApplicationName" >
+            android:label="@string/ApplicationName"
+            android:windowSoftInputMode="stateUnspecified"
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -114,9 +115,18 @@
             android:theme="@android:style/Theme.Dialog" />
         <activity android:name="org.zirco.ui.activities.HomeActivity" />
         <!-- 设置 -->
-        <activity android:name="org.zirco.ui.activities.preferences.SettingsActivity" />
-        <activity android:name="org.zirco.ui.activities.preferences.CommonSettingsActivity" />
-        <activity android:name="org.zirco.ui.activities.preferences.PrimeSettingsActivity" />
+        <activity
+            android:name="org.zirco.ui.activities.preferences.SettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="org.zirco.ui.activities.preferences.CommonSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="org.zirco.ui.activities.preferences.PrimeSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <provider
             android:name="org.zirco.providers.ZircoBookmarksContentProvider"

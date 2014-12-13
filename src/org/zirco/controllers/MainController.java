@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.zirco.R;
 import org.zirco.model.adapters.TabPagerAdapter;
-import org.zirco.ui.activities.BookmarksHistoryActivity;
+import org.zirco.ui.activities.BookmarksHistoryActivity02;
 import org.zirco.ui.activities.DownloadsListActivity;
 import org.zirco.ui.activities.EditBookmarkActivity;
 import org.zirco.ui.activities.MainActivity02;
@@ -370,7 +370,8 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 	 * Open the bookmark list.
 	 */
 	private void openBookmarksHistoryActivity() {
-    	Intent i = new Intent(mActivity, BookmarksHistoryActivity.class);
+//    	Intent i = new Intent(mActivity, BookmarksHistoryActivity.class);
+		Intent i = new Intent(mActivity, BookmarksHistoryActivity02.class);
     	mActivity.startActivityForResult(i, MainActivity02.OPEN_BOOKMARKS_HISTORY_ACTIVITY);
     }
 	

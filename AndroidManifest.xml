@@ -90,6 +90,9 @@
             android:name="org.zirco.ui.activities.BookmarksHistoryActivity"
             android:configChanges="keyboardHidden|orientation" />
         <activity
+            android:name="org.zirco.ui.activities.BookmarksHistoryActivity02"
+            android:configChanges="keyboardHidden|orientation" />
+        <activity
             android:name="org.zirco.ui.activities.preferences.ChangelogActivity"
             android:label="@string/ChangelogActivity.Title"
             android:theme="@android:style/Theme.Dialog" />

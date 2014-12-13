@@ -536,4 +536,12 @@
     
     <!-- download -->
     <string name="download_videos_manage_space">&#160;&#160;已用&#160;&#160;<xliff:g id="usedspace">%s</xliff:g>&#160;，剩余可用&#160;&#160;<xliff:g id="freespace">%s</xliff:g></string>
+    
+    
+    <!-- 公共 -->
+    <string name="error_message_no_net">亲，您的网络不够顺畅，检查下网络吧！</string>
+    <string name="error_message_refresh">点击页面刷新重试</string>
+    <string name="error_toast_message_no_net">网络连接失败，请检查网络</string>
+    <string name="error_toast_message_net_connect">数据请求失败，请重试</string>
+    <string name="error_message_no_content">内容更新维护中，更多精彩敬请期待~</string>
 </resources>

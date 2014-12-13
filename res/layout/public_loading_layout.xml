@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        style="?android:attr/progressBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/error_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/net_error_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dip"
+            android:src="@drawable/icon_public_refresh" />
+
+        <TextView
+            android:id="@+id/errorTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dip"
+            android:singleLine="true"
+            android:text="@string/error_message_no_net" />
+        
+        <TextView
+            android:id="@+id/errorText02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dip"
+            android:singleLine="true"
+            android:text="@string/error_message_refresh"/>
+    </LinearLayout>
+
+</merge>

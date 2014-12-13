@@ -51,11 +51,6 @@
         <activity
             android:name="org.zirco.ui.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:label="@string/ApplicationName" >
-        </activity>
-        <activity
-            android:name="org.zirco.ui.activities.MainActivity02"
-            android:configChanges="keyboardHidden|orientation"
             android:label="@string/ApplicationName"
             android:windowSoftInputMode="stateUnspecified"
             android:theme="@android:style/Theme.NoTitleBar" >
@@ -82,15 +77,10 @@
             android:name="org.zirco.ui.activities.EditBookmarkActivity"
             android:label="@string/EditBookmarkActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name="org.zirco.ui.activities.BookmarksListActivity" />
-        <activity android:name="org.zirco.ui.activities.HistoryListActivity" />
         <activity android:name="org.zirco.ui.activities.DownloadsListActivity" />
         <activity android:name="org.zirco.ui.activities.preferences.AdBlockerWhiteListActivity" />
         <activity
             android:name="org.zirco.ui.activities.BookmarksHistoryActivity"
-            android:configChanges="keyboardHidden|orientation" />
-        <activity
-            android:name="org.zirco.ui.activities.BookmarksHistoryActivity02"
             android:configChanges="keyboardHidden|orientation" />
         <activity
             android:name="org.zirco.ui.activities.preferences.ChangelogActivity"

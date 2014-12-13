@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.zirco.R;
 import org.zirco.model.adapters.TabPagerAdapter;
-import org.zirco.ui.activities.BookmarksHistoryActivity02;
+import org.zirco.ui.activities.BookmarksHistoryActivity;
 import org.zirco.ui.activities.DownloadsListActivity;
 import org.zirco.ui.activities.EditBookmarkActivity;
-import org.zirco.ui.activities.MainActivity02;
+import org.zirco.ui.activities.MainActivity;
 import org.zirco.ui.activities.preferences.PreferencesActivity;
 import org.zirco.ui.activities.preferences.SettingsActivity;
 import org.zirco.ui.components.CustomWebView;
@@ -37,7 +37,7 @@ import android.webkit.ValueCallback;
 
 public class MainController implements ToolBarCallback, NavigatBarCallback {
 
-	private MainActivity02 mActivity;
+	private MainActivity mActivity;
 	
 	private CustomWebView mCurrentWebView;
 	private View mCustomView;
@@ -52,7 +52,7 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 	private ValueCallback<Uri> mUploadMessage;
 	private OnSharedPreferenceChangeListener mPreferenceChangeListener;
 	
-	public MainController(MainActivity02 activity) {
+	public MainController(MainActivity activity) {
 		
 		this.mActivity = activity;
 		
@@ -370,9 +370,8 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 	 * Open the bookmark list.
 	 */
 	private void openBookmarksHistoryActivity() {
-//    	Intent i = new Intent(mActivity, BookmarksHistoryActivity.class);
-		Intent i = new Intent(mActivity, BookmarksHistoryActivity02.class);
-    	mActivity.startActivityForResult(i, MainActivity02.OPEN_BOOKMARKS_HISTORY_ACTIVITY);
+		Intent i = new Intent(mActivity, BookmarksHistoryActivity.class);
+    	mActivity.startActivityForResult(i, MainActivity.OPEN_BOOKMARKS_HISTORY_ACTIVITY);
     }
 	
 	/**
@@ -380,7 +379,7 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 	 */
 	private void openDownloadsList() {
 		Intent i = new Intent(mActivity, DownloadsListActivity.class);
-		mActivity.startActivityForResult(i, MainActivity02.OPEN_DOWNLOADS_ACTIVITY);
+		mActivity.startActivityForResult(i, MainActivity.OPEN_DOWNLOADS_ACTIVITY);
 	}
 	
 	/**

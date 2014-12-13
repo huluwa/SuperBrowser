@@ -4,7 +4,6 @@ import org.zirco.R;
 import org.zirco.model.adapters.BookmarksCursorAdapter;
 import org.zirco.model.items.BookmarkItem;
 import org.zirco.providers.BookmarksProviderWrapper;
-import org.zirco.ui.activities.BookmarksListActivity;
 import org.zirco.ui.activities.EditBookmarkActivity;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;

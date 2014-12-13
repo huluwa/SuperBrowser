@@ -4,7 +4,7 @@ import org.zirco.R;
 import org.zirco.controllers.Controller;
 import org.zirco.model.items.DownloadItem;
 import org.zirco.ui.activities.MainActivity;
-import org.zirco.ui.activities.MainActivity02;
+import org.zirco.ui.activities.MainActivity;
 import org.zirco.ui.components.CustomWebView;
 import org.zirco.ui.components.CustomWebViewClient;
 import org.zirco.ui.components.CustomWebViewClientCallback;
@@ -799,8 +799,8 @@ public class WebviewFragment extends BaseFragment implements
 	@Override
 	public void onUrlLoading(String url) {
 		// TODO Auto-generated method stub
-		((MainActivity02)mActivity).getController().addTab(false);
-		((MainActivity02)mActivity).getController().navigateToUrl(url);
+		((MainActivity)mActivity).getController().addTab(false);
+		((MainActivity)mActivity).getController().navigateToUrl(url);
 	}
 
 	@Override

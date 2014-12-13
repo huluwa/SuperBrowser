@@ -9,7 +9,7 @@ import org.zirco.controllers.MainController;
 import org.zirco.ui.activities.BookmarksHistoryActivity;
 import org.zirco.ui.activities.DownloadsListActivity;
 import org.zirco.ui.activities.EditBookmarkActivity;
-import org.zirco.ui.activities.MainActivity02;
+import org.zirco.ui.activities.MainActivity;
 import org.zirco.ui.activities.preferences.PreferencesActivity;
 import org.zirco.utils.Constants;
 

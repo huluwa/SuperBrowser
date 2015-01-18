@@ -1,10 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res/org.zirco"
+    xmlns:app="http://schemas.android.com/apk/res/com.wuyu.android.client"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <org.zirco.ui.view.PagerSlidingTabStrip
+    <com.wuyu.android.client.ui.view.PagerSlidingTabStrip
         android:id="@+id/cell_tabs"
         android:layout_width="match_parent"
         android:layout_height="44dip"
@@ -15,7 +15,7 @@
         app:pstsUnderlineColor="@color/browser_color_ff0eafa1"
         app:pstsUnderlineHeight="1dip" />
 
-    <org.zirco.ui.view.NestedViewPager
+    <com.wuyu.android.client.ui.view.NestedViewPager
         android:id="@+id/cell_viewpager"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

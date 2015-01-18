@@ -14,7 +14,7 @@
    GNU General Public License for more details.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.zirco"
+    package="com.wuyu.android.client"
     android:installLocation="auto"
     android:versionCode="1"
     android:versionName="1.0.0" >
@@ -44,12 +44,12 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
-        android:name="org.zirco.BrowserApplication"
+        android:name="com.wuyu.android.client.BrowserApplication"
         android:hardwareAccelerated="true"
         android:icon="@drawable/icon"
         android:label="@string/ApplicationName" >
         <activity
-            android:name="org.zirco.ui.activities.MainActivity"
+            android:name="com.wuyu.android.client.ui.activities.MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:label="@string/ApplicationName"
             android:windowSoftInputMode="stateUnspecified"
@@ -70,65 +70,65 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.zirco.ui.activities.preferences.AboutActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.AboutActivity"
             android:label="@string/AboutActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name="org.zirco.ui.activities.EditBookmarkActivity"
+            android:name="com.wuyu.android.client.ui.activities.EditBookmarkActivity"
             android:label="@string/EditBookmarkActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name="org.zirco.ui.activities.DownloadsListActivity" />
-        <activity android:name="org.zirco.ui.activities.preferences.AdBlockerWhiteListActivity" />
+        <activity android:name="com.wuyu.android.client.ui.activities.DownloadsListActivity" />
+        <activity android:name="com.wuyu.android.client.activities.preferences.AdBlockerWhiteListActivity" />
         <activity
-            android:name="org.zirco.ui.activities.BookmarksHistoryActivity"
+            android:name="com.wuyu.android.client.ui.activities.BookmarksHistoryActivity"
             android:configChanges="keyboardHidden|orientation" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.ChangelogActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.ChangelogActivity"
             android:label="@string/ChangelogActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name="org.zirco.ui.activities.preferences.PreferencesActivity" />
+        <activity android:name="com.wuyu.android.client.ui.activities.preferences.PreferencesActivity" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.HomepagePreferenceActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.HomepagePreferenceActivity"
             android:label="@string/HomepagePreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.SearchUrlPreferenceActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.SearchUrlPreferenceActivity"
             android:label="@string/SearchUrlPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.UserAgentPreferenceActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.UserAgentPreferenceActivity"
             android:label="@string/UserAgentPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name="org.zirco.ui.activities.preferences.MobileViewListActivity" />
-        <activity android:name="org.zirco.ui.activities.WeaveBookmarksListActivity" />
-        <activity android:name="org.zirco.ui.activities.preferences.WeavePreferencesActivity" />
+        <activity android:name="com.wuyu.android.client.ui.activities.preferences.MobileViewListActivity" />
+        <activity android:name="com.wuyu.android.client.ui.activities.WeaveBookmarksListActivity" />
+        <activity android:name="com.wuyu.android.client.ui.activities.preferences.WeavePreferencesActivity" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.WeaveServerPreferenceActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.WeaveServerPreferenceActivity"
             android:label="@string/WeaveServerPreferenceActivity.Title"
             android:theme="@android:style/Theme.Dialog" />
-        <activity android:name="org.zirco.ui.activities.HomeActivity" />
+        <activity android:name="com.wuyu.android.client.ui.activities.HomeActivity" />
         <!-- 设置 -->
         <activity
-            android:name="org.zirco.ui.activities.preferences.SettingsActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.SettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.CommonSettingsActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.CommonSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
         <activity
-            android:name="org.zirco.ui.activities.preferences.PrimeSettingsActivity"
+            android:name="com.wuyu.android.client.ui.activities.preferences.PrimeSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
         <provider
-            android:name="org.zirco.providers.ZircoBookmarksContentProvider"
-            android:authorities="org.zirco.providers.zircobookmarkscontentprovider" />
+            android:name="com.wuyu.android.client.providers.ZircoBookmarksContentProvider"
+            android:authorities="com.wuyu.android.client.providers.zircobookmarkscontentprovider" />
         <provider
-            android:name="org.zirco.providers.WeaveContentProvider"
-            android:authorities="org.zirco.providers.weavecontentprovider" />
+            android:name="com.wuyu.android.client.providers.WeaveContentProvider"
+            android:authorities="com.wuyu.android.client.providers.weavecontentprovider" />
 
-        <receiver android:name="org.zirco.utils.ProxyChangeReceiver" >
+        <receiver android:name="com.wuyu.android.client.utils.ProxyChangeReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.PROXY_CHANGE" />
             </intent-filter>

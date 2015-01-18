@@ -209,7 +209,7 @@
             </ImageButton>
         </LinearLayout>
 
-        <org.zirco.ui.view.NestedViewPager
+        <com.wuyu.android.client.ui.view.NestedViewPager
             android:id="@+id/detailplay_half_detail_viewpager"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"

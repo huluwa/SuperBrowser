@@ -81,6 +81,7 @@ public class MainActivity extends BaseActivity implements IDownloadEventsListene
 	private ViewGroup mTopLayout;
 	private ViewGroup mBottomLayout;
 	private ViewGroup mContentLayout;
+	private ViewGroup mContentUpperLayout;
 	
 	private MainController mManController;
 	
@@ -229,6 +230,7 @@ public class MainActivity extends BaseActivity implements IDownloadEventsListene
 		mTopLayout = (ViewGroup) findViewById(R.id.TopBarLayout);
 		mBottomLayout = (ViewGroup) findViewById(R.id.BottomBarLayout);
 		mContentLayout = (ViewGroup) findViewById(R.id.ContentLayout);
+		mContentUpperLayout = (ViewGroup) findViewById(R.id.ContentUpperLayout);
 		
 		mManController = new MainController(this);
     }
@@ -522,7 +524,12 @@ public class MainActivity extends BaseActivity implements IDownloadEventsListene
 		return mContentLayout;
 	}
 	
+	public ViewGroup getContentUpperLayout() {
+		return mContentUpperLayout;
+	}
+	
 	public MainController getController() {
 		return mManController;
 	}
+	
 }

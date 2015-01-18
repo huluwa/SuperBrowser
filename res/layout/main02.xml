@@ -40,12 +40,23 @@
 
     <!-- 内容区域 -->
 
-    <LinearLayout
-        android:id="@+id/ContentLayout"
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_above="@id/BottomBarLayout"
-        android:layout_below="@id/TopBarLayout"
-        android:orientation="vertical" />
-        
+        android:layout_below="@id/TopBarLayout" >
+
+        <LinearLayout
+            android:id="@+id/ContentLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/ContentUpperLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" />
+    </FrameLayout>
+
 </RelativeLayout>

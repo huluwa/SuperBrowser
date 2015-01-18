@@ -70,10 +70,10 @@ public class NavigatBar implements IToolbarsContainer{
 	
 	public NavigatBar(MainController controller, View root) {
 		mMainController = controller;
-		initView(root);
+		findView(root);
 	}
 
-	public void initView(View root) {
+	public void findView(View root) {
 
 		mTopBar = (LinearLayout) root.findViewById(R.id.BarLayout);
 		mTopBar.setOnClickListener(new OnClickListener() {
@@ -185,8 +185,9 @@ public class NavigatBar implements IToolbarsContainer{
 				}
 			}
 		});
-				
-		mToolsActionGrid.setOnDismissListener(new PopupWindow.OnDismissListener() {			
+		
+
+	 mToolsActionGrid.setOnDismissListener(new PopupWindow.OnDismissListener() {			
 			@Override
 			public void onDismiss() {
 				mToolsActionGridVisible = false;
@@ -511,4 +512,17 @@ public class NavigatBar implements IToolbarsContainer{
 //			updateFavIcon();
 //		}
 	}
+    
+    public interface NavigatBarCallback {
+
+    	public void onFindPrevious(String target);
+    	
+    	public void onFindNext(String target);
+    	
+    	public void onNavigateToHome();
+    	
+    	public void onNavigateToUrl(String url);
+    	
+    	public void onSharePage();
+    }
 }

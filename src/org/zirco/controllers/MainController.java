@@ -15,9 +15,8 @@ import org.zirco.ui.fragment.BaseFragment;
 import org.zirco.ui.fragment.HomeFragment;
 import org.zirco.ui.fragment.WebviewFragment;
 import org.zirco.ui.menu.NavigatBar;
-import org.zirco.ui.menu.NavigatBarCallback;
+import org.zirco.ui.menu.SettingsMenu;
 import org.zirco.ui.menu.ToolBar;
-import org.zirco.ui.menu.ToolBarCallback;
 import org.zirco.ui.view.NestedViewPager;
 import org.zirco.utils.ApplicationUtils;
 import org.zirco.utils.Constants;
@@ -35,7 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.ValueCallback;
 
-public class MainController implements ToolBarCallback, NavigatBarCallback {
+public class MainController implements ToolBar.ToolBarCallback, NavigatBar.NavigatBarCallback, SettingsMenu.SettingsMenuCallBack {
 
 	private MainActivity mActivity;
 	
@@ -48,6 +47,7 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 	
 	private NavigatBar mNavigatBar;
 	private ToolBar mToolBar;
+	private SettingsMenu mSettingsMenu;
 	
 	private ValueCallback<Uri> mUploadMessage;
 	private OnSharedPreferenceChangeListener mPreferenceChangeListener;
@@ -66,14 +66,18 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 		inflater.inflate(R.layout.content_layout, mActivity.getContentLayout(), true);
 		inflater.inflate(R.layout.navigatbar_layout, mActivity.getTopLayout(), true);
 		inflater.inflate(R.layout.toolbar_layout, mActivity.getBottomLayout(), true);
+		inflater.inflate(R.layout.toolbar_menu_layout, mActivity.getContentUpperLayout(), true);
 		
 //		mNavigatBar = new NavigatBar(this, mActivity.getWindow().getDecorView().getRootView());
 //		mToolBar = new ToolBar(this, mActivity.getWindow().getDecorView().getRootView());
 		
 		mNavigatBar = new NavigatBar(this, mActivity.getTopLayout());
 		mToolBar = new ToolBar(this, mActivity.getBottomLayout());
+		mSettingsMenu = new SettingsMenu(this, mActivity.getContentUpperLayout());
+		
 		mToolBar.setToolBarCallback(this);
 		mNavigatBar.setNavigatBarCallback(this);
+		mSettingsMenu.setSettingsMenuCallBack(this);
 		
 		initViewPagerAndTab();
     }
@@ -389,6 +393,13 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 		Intent preferencesActivity = new Intent(mActivity, PreferencesActivity.class);
 		mActivity.startActivity(preferencesActivity);
 	}
+	
+	/**
+	 * 置位
+	 */
+	private void reset() {
+		mSettingsMenu.closed();
+	}
 
 	//--------------------------ToolBarCallback  bengin-----------------------------
 	
@@ -399,6 +410,8 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
     	
     	int index = mCurrentTabViewPager.getCurrentItem();
     	mCurrentTabViewPager.setCurrentItem(--index);
+    	
+    	reset();
 	}
 
 	@Override
@@ -408,22 +421,39 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
     	
     	int index = mCurrentTabViewPager.getCurrentItem();
     	mCurrentTabViewPager.setCurrentItem(++index);
+    	
+    	reset();
 	}
 
 	@Override
 	public void onQuickButton() {
 		addTab(true);
+		
+		reset();
 	}
 
 	@Override
 	public void onCreateTabPage() {
 		addTab(true);
+		
+		reset();
 	}
 
 	@Override
 	public void onRemoveTabPage() {
 		removeCurrentTab();
+		
+		reset();
 	}
+	
+	@Override
+	public void onOpenMenu() {
+		mSettingsMenu.showClosed();
+	}
+	
+	//--------------------------ToolBarCallback  end-----------------------------
+	
+	//--------------------------SettingsMenuCallBack  bengin-----------------------------
 
 	@Override
 	public void onOpenAddBookmarkDialog() {
@@ -453,7 +483,7 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 //		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 	
-	//--------------------------ToolBarCallback  end-----------------------------
+	//--------------------------SettingsMenuCallBack  end-----------------------------
 	
 	
 	//--------------------------NavigatBarCallback  begin-----------------------------
@@ -461,27 +491,37 @@ public class MainController implements ToolBarCallback, NavigatBarCallback {
 	@Override
 	public void onFindPrevious(String target) {
 		mCurrentWebView.findNext(false);
+		
+		reset();
 	}
 
 	@Override
 	public void onFindNext(String target) {
 		mCurrentWebView.findNext(true);
+		
+		reset();
 	}
 
 	@Override
 	public void onNavigateToHome() {
 		navigateToHome();
+		
+		reset();
 	}
 
 	@Override
 	public void onNavigateToUrl(String url) {
 		addTab(false);
 		navigateToUrl(url);
+		
+		reset();
 	}
 
 	@Override
 	public void onSharePage() {
 		ApplicationUtils.sharePage(mActivity, mCurrentWebView.getTitle(), mCurrentWebView.getUrl());
+		
+		reset();
 	}
 	
 	//--------------------------NavigatBarCallback  end-----------------------------

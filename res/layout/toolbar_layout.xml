@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:background="@color/browser_color_ffca0000"
-    android:layout_height="fill_parent" >
+    android:layout_height="48dip" >
 
     <!-- 底部控制栏 -->
 
     <LinearLayout
         android:id="@+id/BottomLayout"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_height="fill_parent"
+        android:background="@color/browser_color_ffca0000"
+        android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <ImageButton
@@ -18,8 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_toolbar_btn_previous"
-            android:background="@android:color/transparent" >
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_toolbar_btn_previous" >
         </ImageButton>
 
         <ImageButton
@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_toolbar_btn_next"
-            android:background="@android:color/transparent" >
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_toolbar_btn_next" >
         </ImageButton>
 
         <ImageButton
@@ -36,8 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_toolbar_btn_menu"
-            android:background="@android:color/transparent" >
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_toolbar_btn_menu" >
         </ImageButton>
 
         <ImageButton
@@ -45,8 +45,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_toolbar_btn_tabcenter"
-            android:background="@android:color/transparent" >
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_toolbar_btn_tabcenter" >
         </ImageButton>
 
         <ImageButton
@@ -54,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_toolbar_btn_home"
-            android:background="@android:color/transparent" >
+            android:background="@android:color/transparent"
+            android:src="@drawable/icon_toolbar_btn_home" >
         </ImageButton>
     </LinearLayout>
 

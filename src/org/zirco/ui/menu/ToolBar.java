@@ -4,6 +4,7 @@ import org.greendroid.QuickAction;
 import org.greendroid.QuickActionGrid;
 import org.greendroid.QuickActionWidget;
 import org.greendroid.QuickActionWidget.OnQuickActionClickListener;
+import org.zirco.BrowserApplication;
 import org.zirco.R;
 import org.zirco.controllers.MainController;
 import org.zirco.ui.activities.BookmarksHistoryActivity;
@@ -15,6 +16,7 @@ import org.zirco.utils.Constants;
 
 import android.content.Context;
 import android.content.Intent;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,11 +44,11 @@ public class ToolBar {
 	private ImageButton mMenuButton;
 	private ImageButton mHomeButton;
 	//menu
-	private RelativeLayout mMenuLayout;
+//	private RelativeLayout mMenuLayout;
 	
 	private MainController mMainController;
 	
-	private QuickActionGrid mToolsActionGrid;
+//	private QuickActionGrid mToolsActionGrid;
 	
 	private ToolBarCallback callback;
 	
@@ -58,11 +60,11 @@ public class ToolBar {
 		
 		mMainController = controller;
 		
-		initView(root);
+		findView(root);
 	}
 	
 	
-	private void initView(View root) {
+	private void findView(View root) {
 		
 		mBottomBar = (LinearLayout) root.findViewById(R.id.BottomLayout);
     	mBottomBar.setOnClickListener(new OnClickListener() {			
@@ -113,8 +115,11 @@ public class ToolBar {
 		mMenuButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 //            	mMenuLayout.setVisibility(View.VISIBLE);
+//				mToolsActionGrid.show(view);
             	
-				mToolsActionGrid.show(view);
+            	if(callback != null) {
+            		callback.onOpenMenu();
+            	}
             }
         });
 		
@@ -128,53 +133,53 @@ public class ToolBar {
         });
 		
 		
-		mToolsActionGrid = new QuickActionGrid(mMainController.getActivity());
-		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_add_bookmark, R.string.Main_MenuAddBookmark));
-		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_bookmarks, R.string.Main_MenuShowBookmarks));
-		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_downloads, R.string.Main_MenuShowDownloads));
-		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_preferences, R.string.Main_MenuPreferences));
-		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_exit, R.string.Main_MenuExit));
-				
-		mToolsActionGrid.setOnQuickActionClickListener(new OnQuickActionClickListener() {			
-			@Override
-			public void onQuickActionClicked(QuickActionWidget widget, int position) {
-				
-				if(callback == null) {
-					return;
-				}
-				
-				switch (position) {
-				case MENU_ADD_BOOKMARK:    		
-					callback.onOpenAddBookmarkDialog();
-		            break;
-		            
-		    	case MENU_SHOW_BOOKMARKS:    		
-		    		callback.onOpenBookmarksHistoryActivity();
-		    		break;
-		    		
-		    	case MENU_SHOW_DOWNLOADS:    		
-		    		callback.onOpenDownloadsList();
-		    		break;
-		    		
-		    	case MENU_PREFERENCES:    		
-		    		callback.onOpenPreferences();
-		    		break;  
-		    		
-		    	case MENU_EXIT:
-		    		callback.onQuit();
-		    		break;				
-				}
-			}
-		});
-		
-		mToolsActionGrid.setOnDismissListener(new PopupWindow.OnDismissListener() {			
-			@Override
-			public void onDismiss() {
-				
-			}
-		});
-		
-		mMenuLayout = (RelativeLayout) root.findViewById(R.id.menu_layout);
+//		mToolsActionGrid = new QuickActionGrid(mMainController.getActivity());
+//		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_add_bookmark, R.string.Main_MenuAddBookmark));
+//		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_bookmarks, R.string.Main_MenuShowBookmarks));
+//		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_downloads, R.string.Main_MenuShowDownloads));
+//		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_preferences, R.string.Main_MenuPreferences));
+//		mToolsActionGrid.addQuickAction(new QuickAction(mMainController.getActivity(), R.drawable.ic_menu_exit, R.string.Main_MenuExit));
+//				
+//		mToolsActionGrid.setOnQuickActionClickListener(new OnQuickActionClickListener() {			
+//			@Override
+//			public void onQuickActionClicked(QuickActionWidget widget, int position) {
+//				
+//				if(callback == null) {
+//					return;
+//				}
+//				
+//				switch (position) {
+//				case MENU_ADD_BOOKMARK:    		
+//					callback.onOpenAddBookmarkDialog();
+//		            break;
+//		            
+//		    	case MENU_SHOW_BOOKMARKS:    		
+//		    		callback.onOpenBookmarksHistoryActivity();
+//		    		break;
+//		    		
+//		    	case MENU_SHOW_DOWNLOADS:    		
+//		    		callback.onOpenDownloadsList();
+//		    		break;
+//		    		
+//		    	case MENU_PREFERENCES:    		
+//		    		callback.onOpenPreferences();
+//		    		break;  
+//		    		
+//		    	case MENU_EXIT:
+//		    		callback.onQuit();
+//		    		break;				
+//				}
+//			}
+//		});
+//		
+//		mToolsActionGrid.setOnDismissListener(new PopupWindow.OnDismissListener() {			
+//			@Override
+//			public void onDismiss() {
+//				
+//			}
+//		});
+//		
+//		mMenuLayout = (RelativeLayout) root.findViewById(R.id.menu_layout);
 	}
 	
 	/**
@@ -192,6 +197,33 @@ public class ToolBar {
 //			}
 //			
 //		}
+	}
+	
+
+	public interface ToolBarCallback {
+	
+		public void navigatePrevious();
+		
+		public void navigateNext();
+		
+		public void onQuickButton();
+		
+		public void onCreateTabPage();
+		
+		public void onRemoveTabPage();
+		
+		public void onOpenMenu();
+		
+	//	public void onOpenAddBookmarkDialog();
+	//	
+	//	public void onOpenBookmarksHistoryActivity();
+	//	
+	//	public void onOpenDownloadsList();
+	//	
+	//	public void onOpenPreferences();
+	//	
+	//	public void onQuit();
+		
 	}
 	
 }
